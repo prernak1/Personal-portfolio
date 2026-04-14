@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prerna Kumari | Software Engineer II</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg:          #0a0f1e;
+      --bg2:         #0d1528;
+      --surface:     #111827;
+      --surface2:    #1a2236;
+      --border:      #1e2d45;
+      --accent:      #6c63ff;
+      --accent2:     #a78bfa;
+      --teal:        #22d3ee;
+      --text:        #e2e8f0;
+      --muted:       #8892a4;
+      --green:       #10b981;
+      --orange:      #f97316;
+      --radius:      14px;
+      --shadow:      0 4px 32px rgba(0,0,0,.45);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--accent2); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--teal); }
+
+    /* ── Scrollbar ───────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* ── Animated background grain ──────────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(108,99,255,.15) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(34,211,238,.10) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* ── Nav ─────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 6%;
+      background: rgba(10,15,30,.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: all .3s;
+    }
+    .nav-logo {
+      font-size: 1.3rem; font-weight: 700;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: .9rem; font-weight: 500; color: var(--muted);
+      position: relative; padding-bottom: 3px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px; background: var(--accent);
+      transition: width .3s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ── Hero ────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 8rem 6% 4rem;
+      position: relative; z-index: 1;
+    }
+    .hero-inner {
+      display: flex; align-items: center; gap: 5rem;
+      max-width: 1100px; width: 100%;
+    }
+    .hero-text { flex: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-family: 'Fira Code', monospace; font-size: .8rem;
+      color: var(--teal); border: 1px solid rgba(34,211,238,.3);
+      padding: .35rem .85rem; border-radius: 100px; margin-bottom: 1.5rem;
+      background: rgba(34,211,238,.05);
+    }
+    .hero-badge::before { content: '●'; font-size: .6rem; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 800; line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 1.15rem; color: var(--muted); margin-bottom: 1.5rem;
+      max-width: 520px;
+    }
+    .hero-contact {
+      display: flex; flex-wrap: wrap; gap: .75rem;
+      font-size: .85rem; color: var(--muted); margin-bottom: 2rem;
+    }
+    .hero-contact span {
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .7rem 1.6rem; border-radius: 8px;
+      font-size: .9rem; font-weight: 600; cursor: pointer;
+      transition: all .2s; border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #8b5cf6);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(108,99,255,.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(108,99,255,.5); color: #fff; }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); transform: translateY(-2px); }
+
+    /* Profile image */
+    .hero-img-wrap {
+      flex-shrink: 0;
+      position: relative; width: 260px; height: 260px;
+    }
+    .hero-img-wrap::before {
+      content: '';
+      position: absolute; inset: -3px;
+      background: linear-gradient(135deg, var(--accent), var(--teal));
+      border-radius: 50%; z-index: 0;
+      animation: rotateBorder 6s linear infinite;
+    }
+    @keyframes rotateBorder {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .hero-img-wrap::after {
+      content: '';
+      position: absolute; inset: 2px;
+      background: var(--bg);
+      border-radius: 50%; z-index: 1;
+    }
+    .hero-img-wrap img {
+      position: absolute; inset: 6px;
+      width: calc(100% - 12px); height: calc(100% - 12px);
+      border-radius: 50%; object-fit: cover; z-index: 2;
+    }
+
+    /* ── Sections ────────────────────────────────── */
+    section {
+      padding: 5rem 6%;
+      position: relative; z-index: 1;
+    }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-family: 'Fira Code', monospace; font-size: .8rem;
+      color: var(--accent); letter-spacing: .1em; margin-bottom: .5rem;
+    }
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700;
+      margin-bottom: 3rem;
+    }
+    h2 em { font-style: normal; color: var(--accent2); }
+
+    /* ── About ───────────────────────────────────── */
+    #about { background: var(--bg2); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      align-items: start;
+    }
+    .about-text p { color: var(--muted); font-size: 1rem; margin-bottom: 1rem; }
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .stat-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      text-align: center;
+      transition: transform .2s, border-color .2s;
+    }
+    .stat-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .stat-card .num {
+      font-size: 2rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat-card .label { font-size: .8rem; color: var(--muted); margin-top: .25rem; }
+
+    /* ── Experience ──────────────────────────────── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), var(--teal), transparent);
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 3rem;
+      animation: fadeUp .6s ease both;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -2rem; top: .4rem;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+      box-shadow: 0 0 0 4px rgba(108,99,255,.25);
+    }
+    .job-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .job-card:hover { border-color: var(--accent); transform: translateX(4px); }
+    .job-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem;
+    }
+    .job-title { font-size: 1.1rem; font-weight: 700; }
+    .job-company { color: var(--accent2); font-size: .95rem; font-weight: 600; }
+    .job-badge {
+      font-size: .75rem; font-family: 'Fira Code', monospace;
+      background: rgba(108,99,255,.15); color: var(--accent2);
+      border: 1px solid rgba(108,99,255,.3);
+      padding: .25rem .75rem; border-radius: 100px; white-space: nowrap;
+    }
+    .job-current {
+      background: rgba(16,185,129,.12); color: var(--green);
+      border-color: rgba(16,185,129,.3);
+    }
+    .job-meta { font-size: .82rem; color: var(--muted); margin-bottom: 1rem; }
+    .job-bullets { list-style: none; }
+    .job-bullets li {
+      position: relative; padding-left: 1.25rem;
+      font-size: .9rem; color: var(--muted); margin-bottom: .5rem;
+    }
+    .job-bullets li::before {
+      content: '▸';
+      position: absolute; left: 0; color: var(--accent);
+    }
+    .job-promo {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .78rem; background: rgba(249,115,22,.1);
+      color: var(--orange); border: 1px solid rgba(249,115,22,.25);
+      padding: .2rem .65rem; border-radius: 100px; margin-bottom: .85rem;
+    }
+
+    /* ── Skills ──────────────────────────────────── */
+    #skills { background: var(--bg2); }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-group {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      transition: border-color .2s;
+    }
+    .skill-group:hover { border-color: var(--accent); }
+    .skill-group-title {
+      font-size: .85rem; font-weight: 600; color: var(--accent2);
+      margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem;
+    }
+    .skill-group-title .icon {
+      width: 28px; height: 28px; border-radius: 6px;
+      background: rgba(108,99,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .skill-tag {
+      font-size: .78rem; font-family: 'Fira Code', monospace;
+      background: var(--surface2); color: var(--text);
+      border: 1px solid var(--border);
+      padding: .3rem .75rem; border-radius: 6px;
+      transition: all .2s;
+    }
+    .skill-tag:hover {
+      background: rgba(108,99,255,.2);
+      border-color: var(--accent); color: var(--accent2);
+    }
+
+    /* ── Education ───────────────────────────────── */
+    .edu-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .edu-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      transition: all .2s; position: relative; overflow: hidden;
+    }
+    .edu-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+    }
+    .edu-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .edu-degree { font-weight: 700; font-size: 1rem; margin-bottom: .3rem; }
+    .edu-school { color: var(--accent2); font-size: .9rem; margin-bottom: .5rem; }
+    .edu-meta { font-size: .82rem; color: var(--muted); }
+    .edu-score {
+      margin-top: .75rem; font-family: 'Fira Code', monospace;
+      font-size: .85rem;
+      background: rgba(16,185,129,.1); color: var(--green);
+      border: 1px solid rgba(16,185,129,.2);
+      display: inline-block; padding: .2rem .65rem; border-radius: 6px;
+    }
+
+    /* ── Contact ─────────────────────────────────── */
+    #contact { background: var(--bg2); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      align-items: center;
+    }
+    .contact-text p { color: var(--muted); margin-bottom: 1.5rem; }
+    .contact-links { display: flex; flex-direction: column; gap: .75rem; }
+    .contact-link {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1rem 1.25rem;
+      transition: all .2s;
+    }
+    .contact-link:hover {
+      border-color: var(--accent); transform: translateX(4px);
+      color: var(--text);
+    }
+    .contact-link .ci {
+      width: 38px; height: 38px; border-radius: 8px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .ci-mail  { background: rgba(108,99,255,.15); }
+    .ci-phone { background: rgba(16,185,129,.15); }
+    .ci-li    { background: rgba(34,211,238,.15); }
+    .ci-code  { background: rgba(249,115,22,.15); }
+    .ci-lc    { background: rgba(253,224,71,.1); }
+    .contact-link .cl-label { font-size: .75rem; color: var(--muted); }
+    .contact-link .cl-val {
+      font-size: .9rem; font-weight: 500; color: var(--text);
+    }
+    .resume-cta {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem; text-align: center;
+    }
+    .resume-cta p { color: var(--muted); font-size: .9rem; margin-bottom: 1.25rem; }
+
+    /* ── Footer ──────────────────────────────────── */
+    footer {
+      text-align: center; padding: 2rem 6%;
+      border-top: 1px solid var(--border);
+      color: var(--muted); font-size: .82rem;
+      position: relative; z-index: 1;
+    }
+
+    /* ── Animations ──────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { opacity: 0; animation: fadeUp .6s ease forwards; }
+    .fade-up:nth-child(1) { animation-delay: .1s; }
+    .fade-up:nth-child(2) { animation-delay: .2s; }
+    .fade-up:nth-child(3) { animation-delay: .3s; }
+    .fade-up:nth-child(4) { animation-delay: .4s; }
+
+    /* ── Responsive ──────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-inner { flex-direction: column-reverse; gap: 2.5rem; text-align: center; }
+      .hero-contact { justify-content: center; }
+      .hero-btns { justify-content: center; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-img-wrap { width: 200px; height: 200px; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 1rem 5%; }
+      .nav-links { gap: 1rem; }
+      section { padding: 3.5rem 5%; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ─────────────────────────────────────── -->
+  <nav>
+    <div class="nav-logo">PK.</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">Available for opportunities</div>
+        <h1>Hi, I'm<br /><span>Prerna Kumari</span></h1>
+        <p class="hero-sub">
+          Software Development Engineer II at S&amp;P Global — building high-performance
+          distributed systems, microservices, and cloud-native solutions.
+        </p>
+        <div class="hero-contact">
+          <span>📧 Kprerna031@outlook.com</span>
+          <span>📱 +91 9958753394</span>
+          <span>📍 Gurugram, India</span>
+        </div>
+        <div class="hero-btns">
+          <a class="btn btn-primary" href="Prerna_Resume_sde.pdf" download>
+            ⬇ Download Resume
+          </a>
+          <a class="btn btn-outline" href="#contact">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-img-wrap">
+        <img src="Image (3).jpg" alt="Prerna Kumari" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ───────────────────────────────────── -->
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label">// about me</p>
+      <h2>Who I <em>Am</em></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm a passionate Software Engineer with 3+ years of experience designing and
+            shipping production-grade backend systems. Currently working as a
+            <strong>Software Development Engineer II</strong> at
+            <strong>S&amp;P Global</strong>, where I lead cloud migrations, modernize
+            legacy pipelines, and engineer real-time data systems at scale.
+          </p>
+          <p>
+            I thrive at the intersection of backend engineering, cloud infrastructure,
+            and distributed systems. I have deep experience in
+            <strong>.NET / C#</strong>, <strong>Python</strong>,
+            <strong>Apache Kafka</strong>, <strong>GCP / AWS / Azure</strong>, and
+            <strong>CI/CD</strong> automation — always writing code that is maintainable,
+            observable, and fault-tolerant.
+          </p>
+          <p>
+            I hold a <strong>B.Tech in Computer Science &amp; Engineering</strong> (82%)
+            from Dr. A.P.J. Abdul Kalam Technical University and believe in continuous
+            learning and Agile collaboration.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card fade-up">
+            <div class="num">3+</div>
+            <div class="label">Years of Experience</div>
+          </div>
+          <div class="stat-card fade-up">
+            <div class="num">100+</div>
+            <div class="label">Repos Migrated</div>
+          </div>
+          <div class="stat-card fade-up">
+            <div class="num">99%</div>
+            <div class="label">Incident Reduction</div>
+          </div>
+          <div class="stat-card fade-up">
+            <div class="num">3</div>
+            <div class="label">Companies Worked</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Experience ──────────────────────────────── -->
+  <section id="experience">
+    <div class="section-inner">
+      <p class="section-label">// work experience</p>
+      <h2>Where I've <em>Worked</em></h2>
+      <div class="timeline">
+
+        <!-- S&P Global -->
+        <div class="timeline-item">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-title">Software Development Engineer II</div>
+                <div class="job-company">S&amp;P Global &mdash; Gurugram, IN</div>
+              </div>
+              <span class="job-badge job-current">▸ Current</span>
+            </div>
+            <div class="job-promo">⬆ Promoted: SDE → SDE II (Oct 2025)</div>
+            <div class="job-meta">Dec 2023 – Present &nbsp;·&nbsp; 2+ years</div>
+            <ul class="job-bullets">
+              <li>Led migration of enterprise SQL workloads to <strong>GCP</strong>, developing Python-based data loaders and implementing logging/monitoring with <strong>OpenSearch</strong> and <strong>Prometheus</strong>.</li>
+              <li>Migrated <strong>100+ repos</strong> and CI/CD pipelines from Azure DevOps to GitHub, standardizing workflows and optimizing deployments.</li>
+              <li>Modernized CIQPro pipelines by migrating NTLM to <strong>OAuth</strong>, integrating <strong>AWS Secrets Manager</strong>, containerizing Windows services, and upgrading <strong>.NET 4.6.2 → .NET 9</strong> — reducing production incidents by <strong>99%</strong>.</li>
+              <li>Engineered a high-performance distributed <strong>microservice for Credit Default Swap (CDS)</strong> data processing, combining scheduled batch SQL extraction with real-time event streaming via <strong>Apache Kafka</strong>.</li>
+              <li>Collaborated with product managers, QA, and business users to define technical solutions and deliver features using <strong>Agile/Scrum</strong> methodologies.</li>
+              <li>Applied best practices: code reviews, unit testing, regression testing, and Level 2 production support.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Signant Health -->
+        <div class="timeline-item">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-title">Software Engineer I</div>
+                <div class="job-company">Signant Health (DSG Inc) &mdash; Noida, IN</div>
+              </div>
+              <span class="job-badge">Sep 2022 – Nov 2023</span>
+            </div>
+            <div class="job-meta">Sep 2022 – Nov 2023 &nbsp;·&nbsp; 1 yr 3 mos</div>
+            <ul class="job-bullets">
+              <li>Provided production support and optimized <strong>SQL queries</strong> to improve system performance.</li>
+              <li>Participated actively in an Agile environment, contributing to scalable engineering practices.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- DRDO -->
+        <div class="timeline-item">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-title">Trainee Engineer</div>
+                <div class="job-company">DRDO (Defence Research &amp; Development Organisation) &mdash; Delhi, IN</div>
+              </div>
+              <span class="job-badge">Jan – Jun 2022</span>
+            </div>
+            <div class="job-meta">Jan 2022 – Jun 2022 &nbsp;·&nbsp; 6 months</div>
+            <ul class="job-bullets">
+              <li>Improved the Junior Research Fellowship form using <strong>PHP</strong> and a CMS with a user-friendly interface.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ──────────────────────────────────── -->
+  <section id="skills">
+    <div class="section-inner">
+      <p class="section-label">// technical skills</p>
+      <h2>What I <em>Build With</em></h2>
+      <div class="skills-grid">
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-title">
+            <div class="icon">💻</div> Languages & Frameworks
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">.NET Core</span>
+            <span class="skill-tag">.NET Framework</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Angular</span>
+            <span class="skill-tag">REST API</span>
+            <span class="skill-tag">Microservices</span>
+            <span class="skill-tag">ETL</span>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-title">
+            <div class="icon">☁️</div> Cloud & DevOps
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">GCP</span>
+            <span class="skill-tag">AWS Secrets Manager</span>
+            <span class="skill-tag">Azure App Insights</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">CI/CD Pipelines</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Azure DevOps</span>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-title">
+            <div class="icon">📊</div> Data & Messaging
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Apache Kafka</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">SQL Server</span>
+            <span class="skill-tag">NoSQL (Cassandra)</span>
+            <span class="skill-tag">OpenSearch</span>
+            <span class="skill-tag">Prometheus</span>
+            <span class="skill-tag">ELK Stack</span>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-title">
+            <div class="icon">🔧</div> Engineering Practices
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Data Structures & Algorithms</span>
+            <span class="skill-tag">OOP</span>
+            <span class="skill-tag">System Design</span>
+            <span class="skill-tag">Agile / Scrum</span>
+            <span class="skill-tag">Code Review</span>
+            <span class="skill-tag">Unit Testing</span>
+            <span class="skill-tag">Git</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Education ───────────────────────────────── -->
+  <section id="education">
+    <div class="section-inner">
+      <p class="section-label">// education</p>
+      <h2>Academic <em>Background</em></h2>
+      <div class="edu-grid">
+
+        <div class="edu-card fade-up">
+          <div class="edu-degree">B.Tech — Computer Science &amp; Engineering</div>
+          <div class="edu-school">Dr. A.P.J. Abdul Kalam Technical University</div>
+          <div class="edu-meta">Graduated 2023</div>
+          <div class="edu-score">82%</div>
+        </div>
+
+        <div class="edu-card fade-up">
+          <div class="edu-degree">Senior Secondary (Class XII)</div>
+          <div class="edu-school">Central Board of Secondary Education (CBSE)</div>
+          <div class="edu-meta">Passed 2019</div>
+          <div class="edu-score">73.4%</div>
+        </div>
+
+        <div class="edu-card fade-up">
+          <div class="edu-degree">Secondary (Class X)</div>
+          <div class="edu-school">Central Board of Secondary Education (CBSE)</div>
+          <div class="edu-meta">Passed 2017</div>
+          <div class="edu-score">CGPA 9.1</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ─────────────────────────────────── -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label">// contact</p>
+      <h2>Let's <em>Connect</em></h2>
+      <div class="contact-grid">
+        <div class="contact-text">
+          <p>
+            I'm open to exciting Software Engineering roles — full-time or contract,
+            on-site or remote. Whether you have a role in mind or just want to chat
+            about tech, feel free to reach out!
+          </p>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:Kprerna031@outlook.com">
+              <div class="ci ci-mail">📧</div>
+              <div>
+                <div class="cl-label">Email</div>
+                <div class="cl-val">Kprerna031@outlook.com</div>
+              </div>
+            </a>
+            <a class="contact-link" href="tel:+919958753394">
+              <div class="ci ci-phone">📱</div>
+              <div>
+                <div class="cl-label">Phone</div>
+                <div class="cl-val">+91 9958753394</div>
+              </div>
+            </a>
+            <a class="contact-link" href="https://www.linkedin.com/in/prernakumari031" target="_blank" rel="noopener">
+              <div class="ci ci-li">🔗</div>
+              <div>
+                <div class="cl-label">LinkedIn</div>
+                <div class="cl-val">linkedin.com/in/prernakumari031</div>
+              </div>
+            </a>
+            <a class="contact-link" href="https://www.naukri.com/code360/profile/prernakumari" target="_blank" rel="noopener">
+              <div class="ci ci-code">💡</div>
+              <div>
+                <div class="cl-label">Code360</div>
+                <div class="cl-val">Prerna's Code360 Profile</div>
+              </div>
+            </a>
+            <a class="contact-link" href="https://leetcode.com/prernakumari" target="_blank" rel="noopener">
+              <div class="ci ci-lc">⚡</div>
+              <div>
+                <div class="cl-label">LeetCode</div>
+                <div class="cl-val">Prerna's LeetCode Profile</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="resume-cta">
+          <div style="font-size:3rem;margin-bottom:1rem;">📄</div>
+          <h3 style="font-size:1.2rem;margin-bottom:.5rem;">View My Resume</h3>
+          <p>Download a copy of my full resume to share with your team.</p>
+          <a class="btn btn-primary" href="Prerna_Resume_sde.pdf" download>
+            ⬇ Download Resume PDF
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ──────────────────────────────────── -->
+  <footer>
+    <p>Designed &amp; built by Prerna Kumari &nbsp;·&nbsp; © 2026 &nbsp;·&nbsp; All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-up, .timeline-item, .skill-group, .edu-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
+      observer.observe(el);
+    });
+
+    // Active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
