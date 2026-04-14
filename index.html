@@ -4,6 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prerna Kumari | Software Engineer II</title>
+  <meta name="description" content="Prerna Kumari — Software Development Engineer II at S&P Global. Distributed systems, cloud, microservices, .NET, Python, Apache Kafka." />
+  <meta property="og:title" content="Prerna Kumari | SDE II" />
+  <meta property="og:description" content="Software Engineer II at S&P Global building distributed systems &amp; cloud-native solutions." />
+  <meta property="og:image" content="Image (3).jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prerna Kumari | SDE II" />
+  <meta name="twitter:description" content="Software Engineer II at S&P Global." />
+  <link rel="icon" href="Image (3).jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
@@ -197,6 +206,22 @@
       align-items: start;
     }
     .about-text p { color: var(--muted); font-size: 1rem; margin-bottom: 1rem; }
+    .about-strengths {
+      display: grid; grid-template-columns: 1fr 1fr; gap: .75rem;
+      margin-top: 1.25rem;
+    }
+    .strength-item {
+      display: flex; align-items: flex-start; gap: .75rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: .85rem 1rem;
+      transition: border-color .2s;
+    }
+    .strength-item:hover { border-color: var(--accent); }
+    .s-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: .1rem; }
+    .strength-item div { display: flex; flex-direction: column; gap: .15rem; }
+    .strength-item strong { font-size: .85rem; color: var(--text); }
+    .strength-item span { font-size: .75rem; color: var(--muted); line-height: 1.4; }
+    @media (max-width: 600px) { .about-strengths { grid-template-columns: 1fr; } }
     .about-stats {
       display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
     }
@@ -391,6 +416,93 @@
     .fade-up:nth-child(3) { animation-delay: .3s; }
     .fade-up:nth-child(4) { animation-delay: .4s; }
 
+    /* ── Typing animation ────────────────────────── */
+    .typed-wrap { display: inline-block; }
+    .typed-text {
+      background: linear-gradient(135deg, var(--accent2), var(--teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .typed-cursor {
+      display: inline-block;
+      width: 3px; height: 1em;
+      background: var(--teal);
+      margin-left: 4px;
+      vertical-align: text-bottom;
+      animation: blink .75s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* ── Projects ────────────────────────────────── */
+    #projects { background: var(--bg); }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      transition: all .25s; position: relative; overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .3s;
+    }
+    .project-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 12px 40px rgba(108,99,255,.2); }
+    .project-card:hover::before { transform: scaleX(1); }
+    .project-icon { font-size: 2rem; }
+    .project-title { font-size: 1.05rem; font-weight: 700; }
+    .project-desc { font-size: .88rem; color: var(--muted); flex: 1; line-height: 1.6; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .project-tag {
+      font-size: .72rem; font-family: 'Fira Code', monospace;
+      background: rgba(108,99,255,.12); color: var(--accent2);
+      border: 1px solid rgba(108,99,255,.25);
+      padding: .2rem .6rem; border-radius: 4px;
+    }
+    .project-links { display: flex; gap: .75rem; }
+    .project-link {
+      font-size: .8rem; font-weight: 600; color: var(--muted);
+      display: flex; align-items: center; gap: .3rem;
+      transition: color .2s;
+    }
+    .project-link:hover { color: var(--accent2); }
+
+    /* ── Skill proficiency bars ──────────────────── */
+    .skill-bars { display: flex; flex-direction: column; gap: .85rem; margin-top: .75rem; }
+    .bar-item {}
+    .bar-header { display: flex; justify-content: space-between; font-size: .8rem; margin-bottom: .3rem; }
+    .bar-header span:first-child { color: var(--text); font-weight: 500; }
+    .bar-header span:last-child { color: var(--muted); font-family: 'Fira Code', monospace; }
+    .bar-track {
+      height: 6px; background: var(--surface2);
+      border-radius: 100px; overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%; border-radius: 100px;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      width: 0; transition: width 1.2s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ── Back to top ─────────────────────────────── */
+    #back-top {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #8b5cf6);
+      color: #fff; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; border: none;
+      box-shadow: 0 4px 20px rgba(108,99,255,.4);
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .3s;
+    }
+    #back-top.visible { opacity: 1; pointer-events: all; }
+    #back-top:hover { transform: translateY(-3px); }
+
     /* ── Responsive ──────────────────────────────── */
     @media (max-width: 900px) {
       .hero-inner { flex-direction: column-reverse; gap: 2.5rem; text-align: center; }
@@ -415,6 +527,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -428,13 +541,11 @@
         <div class="hero-badge">Available for opportunities</div>
         <h1>Hi, I'm<br /><span>Prerna Kumari</span></h1>
         <p class="hero-sub">
-          Software Development Engineer II at S&amp;P Global — building high-performance
-          distributed systems, microservices, and cloud-native solutions.
+          <span class="typed-wrap"><span class="typed-text" id="typed"></span><span class="typed-cursor"></span></span>
         </p>
         <div class="hero-contact">
           <span>📧 Kprerna031@outlook.com</span>
-          <span>📱 +91 9958753394</span>
-          <span>📍 Gurugram, India</span>
+          <span> Gurugram, India</span>
         </div>
         <div class="hero-btns">
           <a class="btn btn-primary" href="Prerna_Resume_sde.pdf" download>
@@ -457,24 +568,47 @@
       <div class="about-grid">
         <div class="about-text">
           <p>
-            I'm a passionate Software Engineer with 3+ years of experience designing and
-            shipping production-grade backend systems. Currently working as a
-            <strong>Software Development Engineer II</strong> at
-            <strong>S&amp;P Global</strong>, where I lead cloud migrations, modernize
-            legacy pipelines, and engineer real-time data systems at scale.
+            Backend-focused Software Engineer with <strong>3+ years</strong> of experience building
+            scalable, distributed systems in production environments. Currently working as
+            <strong>SDE II at S&amp;P Global</strong>, where I design and optimize microservices,
+            data pipelines, and cloud-based architectures handling enterprise-scale financial data.
           </p>
           <p>
-            I thrive at the intersection of backend engineering, cloud infrastructure,
-            and distributed systems. I have deep experience in
-            <strong>.NET / C#</strong>, <strong>Python</strong>,
-            <strong>Apache Kafka</strong>, <strong>GCP / AWS / Azure</strong>, and
-            <strong>CI/CD</strong> automation — always writing code that is maintainable,
-            observable, and fault-tolerant.
+            I have hands-on experience in <strong>event-driven systems using Apache Kafka</strong> —
+            designing topics, partitioning strategies, consumer groups, and exactly-once semantics for
+            high-throughput data ingestion pipelines. My cloud work spans <strong>GCP</strong> (BigQuery,
+            Cloud Storage, Dataflow), <strong>AWS</strong> (Secrets Manager, IAM), and
+            <strong>Azure</strong> (Application Insights, DevOps) — with a strong focus on
+            observability using <strong>Prometheus metrics, OpenSearch dashboards, and ELK Stack</strong>
+            for log aggregation and alerting.
           </p>
           <p>
-            I hold a <strong>B.Tech in Computer Science &amp; Engineering</strong> (82%)
-            from Dr. A.P.J. Abdul Kalam Technical University and believe in continuous
-            learning and Agile collaboration.
+            On the .NET side, I've worked extensively with <strong>ASP.NET Core, hosted services,
+            background workers, and middleware pipelines</strong>. I've containerized Windows-based
+            services using <strong>Docker</strong>, automated deployments through
+            <strong>GitHub Actions CI/CD</strong>, and integrated secure credential management via
+            <strong>OAuth 2.0 and AWS Secrets Manager</strong> — replacing legacy NTLM auth and
+            hardcoded secrets across production systems.
+          </p>
+          <p>
+            I enjoy solving complex backend problems involving <strong>performance, scalability,
+            and system reliability</strong>. Recent highlights include engineering a
+            <strong>Credit Default Swap (CDS) data processing microservice</strong> combining
+            scheduled SQL batch extraction with real-time Kafka streaming, and a
+            <strong>.NET Framework 4.6.2 → .NET 9 migration</strong> that cut production
+            incidents by 99%.
+          </p>
+          <div class="about-strengths">
+            <div class="strength-item"><span class="s-icon">⚙️</span><div><strong>Backend Engineering</strong><span>.NET Core / C# — APIs, workers, middleware, DI, async patterns</span></div></div>
+            <div class="strength-item"><span class="s-icon">🔀</span><div><strong>Distributed Systems</strong><span>Microservices, event-driven architecture, fault tolerance, idempotency</span></div></div>
+            <div class="strength-item"><span class="s-icon">📨</span><div><strong>Apache Kafka</strong><span>Topics, partitions, consumer groups, stream processing, Kafka Connect</span></div></div>
+            <div class="strength-item"><span class="s-icon">☁️</span><div><strong>Cloud Platforms</strong><span>GCP · AWS · Azure — migrations, IaC, secrets, monitoring</span></div></div>
+            <div class="strength-item"><span class="s-icon">🚀</span><div><strong>CI/CD & DevOps</strong><span>GitHub Actions, Docker, Azure DevOps, pipeline standardization</span></div></div>
+            <div class="strength-item"><span class="s-icon">📊</span><div><strong>Observability</strong><span>Prometheus, OpenSearch, ELK Stack, Application Insights</span></div></div>
+          </div>
+          <p style="margin-top:1.25rem; padding: 1rem 1.25rem; background: rgba(108,99,255,.08); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; font-size:.9rem; color: var(--muted);">
+            🎯 Currently exploring opportunities at <strong style="color:var(--text)">product-based companies</strong> where I can work on
+            large-scale systems and contribute to impactful engineering problems.
           </p>
         </div>
         <div class="about-stats">
@@ -568,6 +702,79 @@
     </div>
   </section>
 
+  <!-- ── Projects ─────────────────────────────────── -->
+  <section id="projects">
+    <div class="section-inner">
+      <p class="section-label">// featured projects</p>
+      <h2>What I've <em>Built</em></h2>
+      <div class="projects-grid">
+
+        <div class="project-card fade-up">
+          <div class="project-icon">⚡</div>
+          <div class="project-title">CDS Data Processing Microservice</div>
+          <div class="project-desc">
+            High-performance distributed microservice for Credit Default Swap data processing at S&amp;P Global.
+            Combines scheduled batch extraction from SQL Server with real-time event streaming via Apache Kafka
+            for search indexing and analytics at enterprise scale.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">C# / .NET</span>
+            <span class="project-tag">Apache Kafka</span>
+            <span class="project-tag">SQL Server</span>
+            <span class="project-tag">Microservices</span>
+            <span class="project-tag">OpenSearch</span>
+          </div>
+          <div class="project-links">
+            <span class="project-link">🏢 S&amp;P Global — Enterprise</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-icon">☁️</div>
+          <div class="project-title">GCP SQL Migration Platform</div>
+          <div class="project-desc">
+            Led end-to-end migration of enterprise SQL workloads to Google Cloud Platform.
+            Built Python-based data loaders, implemented observability stack with OpenSearch
+            and Prometheus, and standardized 100+ CI/CD pipelines across GitHub.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">GCP</span>
+            <span class="project-tag">Prometheus</span>
+            <span class="project-tag">OpenSearch</span>
+            <span class="project-tag">CI/CD</span>
+          </div>
+          <div class="project-links">
+            <span class="project-link">🏢 S&amp;P Global — Enterprise</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-icon">🔐</div>
+          <div class="project-title">CIQPro Pipeline Modernization</div>
+          <div class="project-desc">
+            Modernized legacy CIQPro pipelines: migrated NTLM auth to OAuth, integrated
+            AWS Secrets Manager for credential management, containerized Windows services with Docker,
+            and upgraded .NET Framework 4.6.2 to .NET 9 — achieving 99% reduction in production incidents.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">.NET 9</span>
+            <span class="project-tag">OAuth</span>
+            <span class="project-tag">AWS Secrets Manager</span>
+            <span class="project-tag">Docker</span>
+            <span class="project-tag">Azure</span>
+          </div>
+          <div class="project-links">
+            <span class="project-link">🏢 S&amp;P Global — Enterprise</span>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </section>
+
   <!-- ── Skills ──────────────────────────────────── -->
   <section id="skills">
     <div class="section-inner">
@@ -637,6 +844,20 @@
           </div>
         </div>
 
+        <div class="skill-group fade-up" style="grid-column: 1 / -1;">
+          <div class="skill-group-title">
+            <div class="icon">📈</div> Proficiency Levels
+          </div>
+          <div class="skill-bars" id="skill-bars">
+            <div class="bar-item"><div class="bar-header"><span>C# / .NET</span><span>Expert</span></div><div class="bar-track"><div class="bar-fill" data-w="92"></div></div></div>
+            <div class="bar-item"><div class="bar-header"><span>Python</span><span>Advanced</span></div><div class="bar-track"><div class="bar-fill" data-w="82"></div></div></div>
+            <div class="bar-item"><div class="bar-header"><span>Apache Kafka / Microservices</span><span>Advanced</span></div><div class="bar-track"><div class="bar-fill" data-w="85"></div></div></div>
+            <div class="bar-item"><div class="bar-header"><span>Cloud (GCP / AWS / Azure)</span><span>Advanced</span></div><div class="bar-track"><div class="bar-fill" data-w="80"></div></div></div>
+            <div class="bar-item"><div class="bar-header"><span>SQL / Databases</span><span>Expert</span></div><div class="bar-track"><div class="bar-fill" data-w="90"></div></div></div>
+            <div class="bar-item"><div class="bar-header"><span>CI/CD & DevOps</span><span>Advanced</span></div><div class="bar-track"><div class="bar-fill" data-w="78"></div></div></div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -693,32 +914,26 @@
                 <div class="cl-val">Kprerna031@outlook.com</div>
               </div>
             </a>
-            <a class="contact-link" href="tel:+919958753394">
-              <div class="ci ci-phone">📱</div>
-              <div>
-                <div class="cl-label">Phone</div>
-                <div class="cl-val">+91 9958753394</div>
-              </div>
-            </a>
-            <a class="contact-link" href="https://www.linkedin.com/in/prernakumari031" target="_blank" rel="noopener">
+
+            <a class="contact-link" href="https://www.linkedin.com/in/prerna-kumari-33441a1a8/" target="_blank" rel="noopener">
               <div class="ci ci-li">🔗</div>
               <div>
                 <div class="cl-label">LinkedIn</div>
-                <div class="cl-val">linkedin.com/in/prernakumari031</div>
+                <div class="cl-val">linkedin.com/in/prerna-kumari</div>
               </div>
             </a>
-            <a class="contact-link" href="https://www.naukri.com/code360/profile/prernakumari" target="_blank" rel="noopener">
+            <a class="contact-link" href="https://www.naukri.com/code360/profile/b7bc8693-f924-46b6-b462-f5c448e41561" target="_blank" rel="noopener">
               <div class="ci ci-code">💡</div>
               <div>
-                <div class="cl-label">Code360</div>
-                <div class="cl-val">Prerna's Code360 Profile</div>
+                <div class="cl-label">Code360 (Coding Ninjas)</div>
+                <div class="cl-val">naukri.com/code360/profile</div>
               </div>
             </a>
-            <a class="contact-link" href="https://leetcode.com/prernakumari" target="_blank" rel="noopener">
+            <a class="contact-link" href="https://leetcode.com/u/kprerna031/" target="_blank" rel="noopener">
               <div class="ci ci-lc">⚡</div>
               <div>
                 <div class="cl-label">LeetCode</div>
-                <div class="cl-val">Prerna's LeetCode Profile</div>
+                <div class="cl-val">leetcode.com/u/kprerna031</div>
               </div>
             </a>
           </div>
@@ -735,32 +950,78 @@
     </div>
   </section>
 
+  <!-- ── Back to top ──────────────────────────────── -->
+  <button id="back-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
   <!-- ── Footer ──────────────────────────────────── -->
   <footer>
     <p>Designed &amp; built by Prerna Kumari &nbsp;·&nbsp; © 2026 &nbsp;·&nbsp; All rights reserved.</p>
   </footer>
 
   <script>
-    // Intersection Observer for scroll animations
+    // ── Typing animation ──────────────────────────
+    const phrases = [
+      'SDE II at S\u0026P Global',
+      'Backend Engineer',
+      'Cloud \u0026 Microservices',
+      'Distributed Systems',
+      '.NET \u0026 Python Developer',
+      'Apache Kafka Engineer'
+    ];
+    let pi = 0, ci = 0, deleting = false;
+    const el = document.getElementById('typed');
+    function type() {
+      const word = phrases[pi];
+      if (!deleting) {
+        el.textContent = word.slice(0, ++ci);
+        if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; }
+      } else {
+        el.textContent = word.slice(0, --ci);
+        if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+      }
+      setTimeout(type, deleting ? 55 : 90);
+    }
+    type();
+
+    // ── Scroll animations ─────────────────────────
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.style.opacity = '1';
           e.target.style.transform = 'translateY(0)';
+          // Trigger skill bars when visible
+          if (e.target.id === 'skill-bars' || e.target.contains(document.querySelector('.bar-fill'))) {
+            document.querySelectorAll('.bar-fill').forEach(b => {
+              b.style.width = b.dataset.w + '%';
+            });
+          }
         }
       });
     }, { threshold: 0.15 });
 
-    document.querySelectorAll('.fade-up, .timeline-item, .skill-group, .edu-card').forEach(el => {
+    document.querySelectorAll('.fade-up, .timeline-item, .skill-group, .edu-card, .project-card').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(24px)';
       el.style.transition = 'opacity .6s ease, transform .6s ease';
       observer.observe(el);
     });
 
-    // Active nav highlight
+    // Skill bars observer
+    const barsEl = document.getElementById('skill-bars');
+    if (barsEl) {
+      const barObs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          document.querySelectorAll('.bar-fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
+          barObs.disconnect();
+        }
+      }, { threshold: 0.3 });
+      barObs.observe(barsEl);
+    }
+
+    // ── Active nav + back-to-top ──────────────────
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
+    const backTop  = document.getElementById('back-top');
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(s => {
@@ -769,6 +1030,7 @@
       navLinks.forEach(a => {
         a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text)' : '';
       });
+      backTop.classList.toggle('visible', window.scrollY > 400);
     });
   </script>
 </body>
