@@ -15,34 +15,34 @@
   <link rel="icon" href="Image (3).jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     /* ── Reset & Base ─────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     :root {
-      --bg:          #0a0f1e;
-      --bg2:         #0d1528;
-      --surface:     #111827;
-      --surface2:    #1a2236;
-      --border:      #1e2d45;
-      --accent:      #6c63ff;
-      --accent2:     #a78bfa;
-      --teal:        #22d3ee;
-      --text:        #e2e8f0;
-      --muted:       #8892a4;
-      --green:       #10b981;
-      --orange:      #f97316;
-      --radius:      14px;
-      --shadow:      0 4px 32px rgba(0,0,0,.45);
+      --bg:          #0f0a14;
+      --bg2:         #130d1a;
+      --surface:     #1a1022;
+      --surface2:    #221430;
+      --border:      #2e1d3e;
+      --accent:      #e879a0;
+      --accent2:     #c084fc;
+      --teal:        #f0abfc;
+      --text:        #f5e6ff;
+      --muted:       #a78bb5;
+      --green:       #a78bfa;
+      --orange:      #f472b6;
+      --radius:      16px;
+      --shadow:      0 4px 32px rgba(0,0,0,.5);
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.65;
+      line-height: 1.7;
       overflow-x: hidden;
     }
 
@@ -50,17 +50,18 @@
     a:hover { color: var(--teal); }
 
     /* ── Scrollbar ───────────────────────────────── */
-    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg,var(--accent),var(--accent2)); border-radius: 3px; }
 
-    /* ── Animated background grain ──────────────── */
+    /* ── Animated background glows ──────────────── */
     body::before {
       content: '';
       position: fixed; inset: 0; z-index: 0;
       background-image:
-        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(108,99,255,.15) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(34,211,238,.10) 0%, transparent 60%);
+        radial-gradient(ellipse 70% 50% at 15% 10%, rgba(232,121,160,.18) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 85% 75%, rgba(192,132,252,.15) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 30% at 50% 50%, rgba(240,171,252,.05) 0%, transparent 60%);
       pointer-events: none;
     }
 
@@ -75,8 +76,9 @@
       transition: all .3s;
     }
     .nav-logo {
+      font-family: 'Playfair Display', serif;
       font-size: 1.3rem; font-weight: 700;
-      background: linear-gradient(90deg, var(--accent), var(--teal));
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--teal));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -106,21 +108,23 @@
     .hero-text { flex: 1; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: .5rem;
-      font-family: 'Fira Code', monospace; font-size: .8rem;
-      color: var(--teal); border: 1px solid rgba(34,211,238,.3);
-      padding: .35rem .85rem; border-radius: 100px; margin-bottom: 1.5rem;
-      background: rgba(34,211,238,.05);
+      font-family: 'DM Sans', sans-serif; font-size: .82rem; font-weight: 500;
+      color: var(--teal); border: 1px solid rgba(240,171,252,.35);
+      padding: .4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem;
+      background: rgba(240,171,252,.07);
+      letter-spacing: .02em;
     }
-    .hero-badge::before { content: '●'; font-size: .6rem; animation: pulse 2s infinite; }
+    .hero-badge::before { content: '✦'; font-size: .65rem; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
 
     h1 {
+      font-family: 'Playfair Display', serif;
       font-size: clamp(2.4rem, 5vw, 3.8rem);
-      font-weight: 800; line-height: 1.15;
+      font-weight: 700; line-height: 1.15;
       margin-bottom: 1rem;
     }
     h1 span {
-      background: linear-gradient(135deg, var(--accent), var(--teal));
+      background: linear-gradient(135deg, var(--accent), var(--accent2), var(--teal));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .hero-sub {
@@ -142,11 +146,11 @@
       transition: all .2s; border: none;
     }
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #8b5cf6);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
       color: #fff;
-      box-shadow: 0 4px 20px rgba(108,99,255,.35);
+      box-shadow: 0 4px 24px rgba(232,121,160,.4);
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(108,99,255,.5); color: #fff; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(232,121,160,.55); color: #fff; }
     .btn-outline {
       background: transparent;
       color: var(--text);
@@ -162,7 +166,7 @@
     .hero-img-wrap::before {
       content: '';
       position: absolute; inset: -3px;
-      background: linear-gradient(135deg, var(--accent), var(--teal));
+      background: linear-gradient(135deg, var(--accent), var(--accent2), var(--teal));
       border-radius: 50%; z-index: 0;
       animation: rotateBorder 6s linear infinite;
     }
@@ -190,14 +194,16 @@
     .section-inner { max-width: 1100px; margin: 0 auto; }
 
     .section-label {
-      font-family: 'Fira Code', monospace; font-size: .8rem;
-      color: var(--accent); letter-spacing: .1em; margin-bottom: .5rem;
+      font-family: 'Fira Code', monospace; font-size: .75rem;
+      color: var(--accent); letter-spacing: .12em; margin-bottom: .5rem;
+      opacity: .85;
     }
     h2 {
+      font-family: 'Playfair Display', serif;
       font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700;
       margin-bottom: 3rem;
     }
-    h2 em { font-style: normal; color: var(--accent2); }
+    h2 em { font-style: italic; color: var(--accent); }
 
     /* ── About ───────────────────────────────────── */
     #about { background: var(--bg2); }
@@ -231,10 +237,11 @@
       text-align: center;
       transition: transform .2s, border-color .2s;
     }
-    .stat-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .stat-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 8px 30px rgba(232,121,160,.15); }
     .stat-card .num {
-      font-size: 2rem; font-weight: 800;
-      background: linear-gradient(135deg, var(--accent), var(--teal));
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .stat-card .label { font-size: .8rem; color: var(--muted); margin-top: .25rem; }
@@ -245,7 +252,7 @@
       content: '';
       position: absolute; left: 0; top: 0; bottom: 0;
       width: 2px;
-      background: linear-gradient(180deg, var(--accent), var(--teal), transparent);
+      background: linear-gradient(180deg, var(--accent), var(--accent2), var(--teal), transparent);
     }
     .timeline-item {
       position: relative; margin-bottom: 3rem;
@@ -255,15 +262,16 @@
       content: '';
       position: absolute; left: -2rem; top: .4rem;
       width: 12px; height: 12px; border-radius: 50%;
-      background: var(--accent); border: 2px solid var(--bg);
-      box-shadow: 0 0 0 4px rgba(108,99,255,.25);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 4px rgba(232,121,160,.2);
     }
     .job-card {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 1.75rem;
       transition: border-color .2s, transform .2s;
     }
-    .job-card:hover { border-color: var(--accent); transform: translateX(4px); }
+    .job-card:hover { border-color: var(--accent); transform: translateX(4px); box-shadow: 0 4px 24px rgba(232,121,160,.1); }
     .job-header {
       display: flex; justify-content: space-between; align-items: flex-start;
       flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem;
@@ -484,19 +492,164 @@
     }
     .bar-fill {
       height: 100%; border-radius: 100px;
-      background: linear-gradient(90deg, var(--accent), var(--teal));
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--teal));
       width: 0; transition: width 1.2s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ── DSA Section ────────────────────────────── */
+    #dsa { background: var(--bg2); }
+    .dsa-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .dsa-topics-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .dsa-topic {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+      transition: all .2s; cursor: default;
+    }
+    .dsa-topic:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .dsa-topic-head {
+      display: flex; align-items: center; gap: .6rem;
+      font-weight: 700; font-size: .9rem; margin-bottom: .6rem;
+    }
+    .dsa-topic-head .ti {
+      width: 30px; height: 30px; border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .95rem; background: rgba(108,99,255,.15);
+    }
+    .dsa-chips { display: flex; flex-wrap: wrap; gap: .35rem; }
+    .dsa-chip {
+      font-size: .72rem; font-family: 'Fira Code', monospace;
+      background: var(--surface2); color: var(--muted);
+      border: 1px solid var(--border); padding: .2rem .55rem; border-radius: 4px;
+    }
+    .dsa-stats {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .dsa-stat-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+      display: flex; align-items: center; gap: 1rem;
+      transition: border-color .2s;
+    }
+    .dsa-stat-card:hover { border-color: var(--accent); }
+    .dsa-stat-icon {
+      width: 46px; height: 46px; flex-shrink: 0; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+    }
+    .dsa-stat-card .num { font-size: 1.5rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .dsa-stat-card .lbl { font-size: .78rem; color: var(--muted); }
+
+    /* ── System Design Section ───────────────────── */
+    #systemdesign { background: var(--bg); }
+    .sd-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .sd-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      transition: all .2s; position: relative; overflow: hidden;
+    }
+    .sd-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      transform: scaleX(0); transform-origin: left; transition: transform .3s;
+    }
+    .sd-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .sd-card:hover::before { transform: scaleX(1); }
+    .sd-card-head {
+      display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem;
+    }
+    .sd-icon {
+      width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+      background: rgba(108,99,255,.15);
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .sd-title { font-weight: 700; font-size: .95rem; }
+    .sd-subtitle { font-size: .75rem; color: var(--accent2); }
+    .sd-points { list-style: none; }
+    .sd-points li {
+      font-size: .83rem; color: var(--muted);
+      padding: .35rem 0; padding-left: 1.1rem; position: relative;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+    .sd-points li:last-child { border-bottom: none; }
+    .sd-points li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+
+    /* ── Guidance Section ──────────────────────────── */
+    #guidance { background: var(--bg2); }
+    .guidance-layout {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: start;
+    }
+    .guidance-intro p {
+      color: var(--muted); font-size: .95rem; margin-bottom: 1rem; line-height: 1.75;
+    }
+    .guidance-topics {
+      display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; margin: 1.75rem 0;
+    }
+    .g-topic {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1rem;
+      display: flex; align-items: flex-start; gap: .65rem;
+      transition: all .2s;
+    }
+    .g-topic:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,121,160,.12); }
+    .g-topic-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: .1rem; }
+    .g-topic-title { font-size: .83rem; font-weight: 600; color: var(--text); margin-bottom: .2rem; }
+    .g-topic-desc { font-size: .74rem; color: var(--muted); line-height: 1.4; }
+    .guidance-cta-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      position: sticky; top: 100px;
+      text-align: center;
+    }
+    .guidance-cta-card .gcta-glow {
+      width: 70px; height: 70px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; margin: 0 auto 1.25rem;
+      box-shadow: 0 0 30px rgba(232,121,160,.35);
+    }
+    .guidance-cta-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; margin-bottom: .65rem;
+    }
+    .guidance-cta-card p {
+      font-size: .85rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.7;
+    }
+    .guidance-cta-card .mailto-box {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 10px; padding: .85rem 1rem;
+      font-family: 'Fira Code', monospace; font-size: .8rem;
+      color: var(--accent2); margin-bottom: 1.25rem;
+      word-break: break-all;
+    }
+    .guidance-note {
+      margin-top: 1.5rem; padding: 1rem 1.25rem;
+      background: rgba(232,121,160,.06); border: 1px solid rgba(232,121,160,.2);
+      border-radius: 10px; font-size: .8rem; color: var(--muted); line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .guidance-layout { grid-template-columns: 1fr; }
+      .guidance-cta-card { position: static; }
+    }
+    @media (max-width: 600px) {
+      .guidance-topics { grid-template-columns: 1fr; }
     }
 
     /* ── Back to top ─────────────────────────────── */
     #back-top {
       position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
       width: 44px; height: 44px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), #8b5cf6);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
       color: #fff; font-size: 1.1rem;
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; border: none;
-      box-shadow: 0 4px 20px rgba(108,99,255,.4);
+      box-shadow: 0 4px 20px rgba(232,121,160,.45);
       opacity: 0; pointer-events: none;
       transition: opacity .3s, transform .3s;
     }
@@ -509,6 +662,7 @@
       .hero-contact { justify-content: center; }
       .hero-btns { justify-content: center; }
       .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .dsa-layout { grid-template-columns: 1fr; }
       .hero-img-wrap { width: 200px; height: 200px; }
     }
     @media (max-width: 600px) {
@@ -530,6 +684,7 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#guidance">Guidance</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -862,6 +1017,227 @@
     </div>
   </section>
 
+  <!-- ── DSA ──────────────────────────────────────── -->
+  <section id="dsa">
+    <div class="section-inner">
+      <p class="section-label">// data structures & algorithms</p>
+      <h2>Problem <em>Solving</em></h2>
+      <div class="dsa-layout">
+        <div class="dsa-topics-grid">
+
+          <div class="dsa-topic fade-up">
+            <div class="dsa-topic-head"><div class="ti">🌲</div> Trees & Graphs</div>
+            <div class="dsa-chips">
+              <span class="dsa-chip">Binary Tree</span>
+              <span class="dsa-chip">BST</span>
+              <span class="dsa-chip">AVL Tree</span>
+              <span class="dsa-chip">BFS</span>
+              <span class="dsa-chip">DFS</span>
+              <span class="dsa-chip">Dijkstra</span>
+              <span class="dsa-chip">Topological Sort</span>
+              <span class="dsa-chip">Union-Find</span>
+            </div>
+          </div>
+
+          <div class="dsa-topic fade-up">
+            <div class="dsa-topic-head"><div class="ti">🧩</div> Dynamic Programming</div>
+            <div class="dsa-chips">
+              <span class="dsa-chip">Memoization</span>
+              <span class="dsa-chip">Tabulation</span>
+              <span class="dsa-chip">Knapsack</span>
+              <span class="dsa-chip">LCS / LIS</span>
+              <span class="dsa-chip">Matrix DP</span>
+              <span class="dsa-chip">Interval DP</span>
+              <span class="dsa-chip">Bitmask DP</span>
+            </div>
+          </div>
+
+          <div class="dsa-topic fade-up">
+            <div class="dsa-topic-head"><div class="ti">🔢</div> Arrays & Strings</div>
+            <div class="dsa-chips">
+              <span class="dsa-chip">Two Pointers</span>
+              <span class="dsa-chip">Sliding Window</span>
+              <span class="dsa-chip">Prefix Sum</span>
+              <span class="dsa-chip">Kadane's Algo</span>
+              <span class="dsa-chip">Binary Search</span>
+              <span class="dsa-chip">Hash Maps</span>
+            </div>
+          </div>
+
+          <div class="dsa-topic fade-up">
+            <div class="dsa-topic-head"><div class="ti">📚</div> Core Structures</div>
+            <div class="dsa-chips">
+              <span class="dsa-chip">Stack / Queue</span>
+              <span class="dsa-chip">Heap / PQ</span>
+              <span class="dsa-chip">Trie</span>
+              <span class="dsa-chip">Segment Tree</span>
+              <span class="dsa-chip">Linked List</span>
+              <span class="dsa-chip">Deque</span>
+            </div>
+          </div>
+
+          <div class="dsa-topic fade-up">
+            <div class="dsa-topic-head"><div class="ti">⚡</div> Algorithms</div>
+            <div class="dsa-chips">
+              <span class="dsa-chip">Quick Sort</span>
+              <span class="dsa-chip">Merge Sort</span>
+              <span class="dsa-chip">Greedy</span>
+              <span class="dsa-chip">Backtracking</span>
+              <span class="dsa-chip">Divide & Conquer</span>
+              <span class="dsa-chip">Bit Manipulation</span>
+            </div>
+          </div>
+
+          <div class="dsa-topic fade-up">
+            <div class="dsa-topic-head"><div class="ti">🎯</div> Patterns</div>
+            <div class="dsa-chips">
+              <span class="dsa-chip">Fast & Slow Ptr</span>
+              <span class="dsa-chip">Merge Intervals</span>
+              <span class="dsa-chip">Cyclic Sort</span>
+              <span class="dsa-chip">Monotonic Stack</span>
+              <span class="dsa-chip">Top K Elements</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="dsa-stats">
+          <div class="dsa-stat-card fade-up">
+            <div class="dsa-stat-icon" style="background:rgba(253,224,71,.1)">⚡</div>
+            <div>
+              <div class="num">LeetCode</div>
+              <div class="lbl">Active problem solver — Easy, Medium &amp; Hard</div>
+            </div>
+          </div>
+          <div class="dsa-stat-card fade-up">
+            <div class="dsa-stat-icon" style="background:rgba(249,115,22,.1)">🔥</div>
+            <div>
+              <div class="num">Code360</div>
+              <div class="lbl">Coding Ninjas — DSA practice &amp; contests</div>
+            </div>
+          </div>
+          <div class="dsa-stat-card fade-up">
+            <div class="dsa-stat-icon" style="background:rgba(108,99,255,.15)">🏆</div>
+            <div>
+              <div class="num">Applied DSA</div>
+              <div class="lbl">Used in production: optimized SQL queries, batch processing algorithms, Kafka partition strategies</div>
+            </div>
+          </div>
+          <div class="dsa-stat-card fade-up">
+            <div class="dsa-stat-icon" style="background:rgba(16,185,129,.1)">🎓</div>
+            <div>
+              <div class="num">B.Tech CS</div>
+              <div class="lbl">Strong academic foundation in algorithms, complexity (Big-O), and data structures</div>
+            </div>
+          </div>
+          <div style="background:rgba(108,99,255,.06); border:1px solid rgba(108,99,255,.2); border-radius:var(--radius); padding:1.25rem; font-size:.85rem; color:var(--muted); line-height:1.7;">
+            <strong style="color:var(--text); display:block; margin-bottom:.5rem;">🧠 Real-world DSA usage</strong>
+            Selected optimal data structures for the CDS microservice — using priority queues for event ordering, hash maps for deduplication, and sliding window algorithms for time-series batch processing at S&amp;P Global.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── System Design ───────────────────────────── -->
+  <section id="systemdesign">
+    <div class="section-inner">
+      <p class="section-label">// system design</p>
+      <h2>Architecture <em>Knowledge</em></h2>
+      <div class="sd-grid">
+
+        <div class="sd-card fade-up">
+          <div class="sd-card-head">
+            <div class="sd-icon">🏗️</div>
+            <div><div class="sd-title">Distributed Systems</div><div class="sd-subtitle">CAP theorem, consistency, fault tolerance</div></div>
+          </div>
+          <ul class="sd-points">
+            <li>CAP Theorem — trade-offs between Consistency, Availability &amp; Partition tolerance</li>
+            <li>Leader election, consensus algorithms (Raft/Paxos concepts)</li>
+            <li>Eventual consistency vs strong consistency models</li>
+            <li>Idempotency &amp; exactly-once delivery guarantees</li>
+            <li>Distributed transactions &amp; saga pattern</li>
+          </ul>
+        </div>
+
+        <div class="sd-card fade-up">
+          <div class="sd-card-head">
+            <div class="sd-icon">📨</div>
+            <div><div class="sd-title">Event-Driven Architecture</div><div class="sd-subtitle">Apache Kafka — hands-on production experience</div></div>
+          </div>
+          <ul class="sd-points">
+            <li>Topic design, partition strategy &amp; replication factor</li>
+            <li>Consumer groups, offset management &amp; lag monitoring</li>
+            <li>Exactly-once semantics (EOS) &amp; idempotent producers</li>
+            <li>Dead letter queues (DLQ) for error handling</li>
+            <li>Kafka Connect for data pipeline integration</li>
+            <li>Used in CDS microservice at S&amp;P Global (production)</li>
+          </ul>
+        </div>
+
+        <div class="sd-card fade-up">
+          <div class="sd-card-head">
+            <div class="sd-icon">🔀</div>
+            <div><div class="sd-title">Microservices Design</div><div class="sd-subtitle">Patterns &amp; real production architecture</div></div>
+          </div>
+          <ul class="sd-points">
+            <li>Service decomposition &amp; domain-driven design (DDD)</li>
+            <li>API Gateway, service discovery &amp; load balancing</li>
+            <li>Circuit breaker, retry &amp; bulkhead patterns</li>
+            <li>Inter-service communication: REST, gRPC, async messaging</li>
+            <li>Containerization with Docker &amp; orchestration</li>
+            <li>Sidecar &amp; ambassador patterns</li>
+          </ul>
+        </div>
+
+        <div class="sd-card fade-up">
+          <div class="sd-card-head">
+            <div class="sd-icon">🗄️</div>
+            <div><div class="sd-title">Database Design</div><div class="sd-subtitle">SQL, NoSQL, caching &amp; sharding</div></div>
+          </div>
+          <ul class="sd-points">
+            <li>Relational DB design — normalization, indexing, query optimization</li>
+            <li>NoSQL trade-offs: Cassandra (wide-column), document stores</li>
+            <li>Read replicas, write-ahead logging &amp; connection pooling</li>
+            <li>Caching strategies: cache-aside, write-through, TTL</li>
+            <li>Database sharding &amp; partitioning strategies</li>
+          </ul>
+        </div>
+
+        <div class="sd-card fade-up">
+          <div class="sd-card-head">
+            <div class="sd-icon">📈</div>
+            <div><div class="sd-title">Scalability & Performance</div><div class="sd-subtitle">Designing for high throughput</div></div>
+          </div>
+          <ul class="sd-points">
+            <li>Horizontal vs vertical scaling strategies</li>
+            <li>Rate limiting, throttling &amp; backpressure</li>
+            <li>Async processing &amp; job queues for heavy workloads</li>
+            <li>CDN, load balancers &amp; reverse proxies</li>
+            <li>Performance profiling &amp; bottleneck identification</li>
+            <li>Batch vs stream processing trade-offs (applied at S&amp;P Global)</li>
+          </ul>
+        </div>
+
+        <div class="sd-card fade-up">
+          <div class="sd-card-head">
+            <div class="sd-icon">🔍</div>
+            <div><div class="sd-title">Observability & Reliability</div><div class="sd-subtitle">Production-grade monitoring</div></div>
+          </div>
+          <ul class="sd-points">
+            <li>Metrics, logs &amp; traces — the three pillars of observability</li>
+            <li>Prometheus for metrics collection &amp; alerting rules</li>
+            <li>OpenSearch / ELK Stack for centralized log aggregation</li>
+            <li>Azure Application Insights for APM &amp; distributed tracing</li>
+            <li>SLO / SLI / SLA definitions &amp; error budget tracking</li>
+            <li>Incident response &amp; postmortem culture</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ── Education ───────────────────────────────── -->
   <section id="education">
     <div class="section-inner">
@@ -880,7 +1256,7 @@
           <div class="edu-degree">Senior Secondary (Class XII)</div>
           <div class="edu-school">Central Board of Secondary Education (CBSE)</div>
           <div class="edu-meta">Passed 2019</div>
-          <div class="edu-score">73.4%</div>
+          <div class="edu-score">78%</div>
         </div>
 
         <div class="edu-card fade-up">
@@ -888,6 +1264,103 @@
           <div class="edu-school">Central Board of Secondary Education (CBSE)</div>
           <div class="edu-meta">Passed 2017</div>
           <div class="edu-score">CGPA 9.1</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Guidance ───────────────────────────────── -->
+  <section id="guidance">
+    <div class="section-inner">
+      <p class="section-label">// personal guidance</p>
+      <h2>Let Me <em>Help You</em></h2>
+      <div class="guidance-layout">
+
+        <div class="guidance-intro">
+          <p>
+            I know how overwhelming it can feel to navigate tech careers, crack DSA interviews,
+            or understand complex backend concepts on your own. I've been there — and honestly,
+            <strong style="color:var(--text)">I'm still on that journey myself.</strong>
+          </p>
+          <p>
+            I'm currently in a learning and growth phase too — actively practising DSA, deepening
+            my system design knowledge, and working towards a career switch to a product-based company.
+            So if you're on a similar path, we're more alike than you think! 💜
+          </p>
+          <p>
+            That said, I've built real production systems, navigated interviews, and figured out a lot
+            along the way — and I'm genuinely happy to share what has worked for me.
+            Whether you're a student, a junior developer, or someone switching careers,
+            feel free to reach out. No judgment, just good advice. ✨
+          </p>
+
+          <div class="guidance-topics">
+            <div class="g-topic">
+              <div class="g-topic-icon">💼</div>
+              <div>
+                <div class="g-topic-title">Career Advice</div>
+                <div class="g-topic-desc">How to get into product companies, resume tips, profile building</div>
+              </div>
+            </div>
+            <div class="g-topic">
+              <div class="g-topic-icon">🧩</div>
+              <div>
+                <div class="g-topic-title">DSA & Problem Solving</div>
+                <div class="g-topic-desc">Where to start, how to practice, which patterns matter most</div>
+              </div>
+            </div>
+            <div class="g-topic">
+              <div class="g-topic-icon">🏗️</div>
+              <div>
+                <div class="g-topic-title">System Design</div>
+                <div class="g-topic-desc">Resources, how to prepare, common mistakes in interviews</div>
+              </div>
+            </div>
+            <div class="g-topic">
+              <div class="g-topic-icon">☁️</div>
+              <div>
+                <div class="g-topic-title">Backend & Cloud</div>
+                <div class="g-topic-desc">.NET, microservices, Kafka, GCP/AWS — concepts and learning paths</div>
+              </div>
+            </div>
+            <div class="g-topic">
+              <div class="g-topic-icon">📝</div>
+              <div>
+                <div class="g-topic-title">Resume Review</div>
+                <div class="g-topic-desc">Honest feedback on your resume to make it recruiter-ready</div>
+              </div>
+            </div>
+            <div class="g-topic">
+              <div class="g-topic-icon">💬</div>
+              <div>
+                <div class="g-topic-title">Interview Prep</div>
+                <div class="g-topic-desc">What to expect in tech rounds, HR, and how to present yourself</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="guidance-note">
+            ✨ <strong style="color:var(--text)">This is completely free &amp; judgment-free.</strong> I'm a fellow learner too —
+            actively practising DSA and preparing for my next big move. Responses may take a few days
+            since I do this in my spare time, but I always reply. Let's grow together! 💜
+          </div>
+        </div>
+
+        <div class="guidance-cta-card fade-up">
+          <div class="gcta-glow">💡</div>
+          <h3>Reach Out for Guidance</h3>
+          <p>
+            Send me an email with your question, your background, and what you're working towards.
+            The more context you share, the better I can help!
+          </p>
+          <div class="mailto-box">Kprerna031@outlook.com</div>
+          <a class="btn btn-primary" href="mailto:Kprerna031@outlook.com?subject=Guidance%20Request%20%E2%80%94%20[Your%20Topic]&body=Hi%20Prerna%2C%0A%0AI%20am%20reaching%20out%20for%20guidance%20on%3A%0A%0A[Describe%20your%20question%20or%20topic]%0A%0AA%20bit%20about%20me%3A%0A[Your%20background%2C%20year%20of%20experience%2C%20goal]%0A%0AThanks!" style="width:100%; justify-content:center;">
+            ✉️ Send me an Email
+          </a>
+          <div style="margin-top:1rem; font-size:.75rem; color:var(--muted);">
+            Or connect on <a href="https://www.linkedin.com/in/prerna-kumari-33441a1a8/" target="_blank" rel="noopener">LinkedIn</a> for a quick message
+          </div>
         </div>
 
       </div>
