@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prerna Kumari | Software Engineer II</title>
+  <meta name="description" content="Prerna Kumari — Software Development Engineer II at S&P Global. Distributed systems, cloud, microservices, .NET, Python, Apache Kafka." />
+  <meta property="og:title" content="Prerna Kumari | SDE II" />
+  <meta property="og:description" content="Software Engineer II at S&P Global building distributed systems &amp; cloud-native solutions." />
+  <meta property="og:image" content="Image (3).jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prerna Kumari | SDE II" />
+  <meta name="twitter:description" content="Software Engineer II at S&P Global." />
+  <link rel="icon" href="Image (3).jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg:          #0f0a14;
+      --bg2:         #130d1a;
+      --surface:     #1a1022;
+      --surface2:    #221430;
+      --border:      #2e1d3e;
+      --accent:      #e879a0;
+      --accent2:     #c084fc;
+      --teal:        #f0abfc;
+      --text:        #f5e6ff;
+      --muted:       #a78bb5;
+      --green:       #a78bfa;
+      --orange:      #f472b6;
+      --radius:      16px;
+      --shadow:      0 4px 32px rgba(0,0,0,.5);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--accent2); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--teal); }
+
+    /* ── Scrollbar ───────────────────────────────── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg,var(--accent),var(--accent2)); border-radius: 3px; }
+
+    /* ── Animated background glows ──────────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background-image:
+        radial-gradient(ellipse 70% 50% at 15% 10%, rgba(232,121,160,.18) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 85% 75%, rgba(192,132,252,.15) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 30% at 50% 50%, rgba(240,171,252,.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* ── Nav ─────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 6%;
+      background: rgba(10,15,30,.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: all .3s;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: .9rem; font-weight: 500; color: var(--muted);
+      position: relative; padding-bottom: 3px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px; background: var(--accent);
+      transition: width .3s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ── Hero ────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 8rem 6% 4rem;
+      position: relative; z-index: 1;
+    }
+    .hero-inner {
+      display: flex; align-items: center; gap: 5rem;
+      max-width: 1100px; width: 100%;
+    }
+    .hero-text { flex: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-family: 'DM Sans', sans-serif; font-size: .82rem; font-weight: 500;
+      color: var(--teal); border: 1px solid rgba(240,171,252,.35);
+      padding: .4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem;
+      background: rgba(240,171,252,.07);
+      letter-spacing: .02em;
+    }
+    .hero-badge::before { content: '✦'; font-size: .65rem; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700; line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2), var(--teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 1.15rem; color: var(--muted); margin-bottom: 1.5rem;
+      max-width: 520px;
+    }
+    .hero-contact {
+      display: flex; flex-wrap: wrap; gap: .75rem;
+      font-size: .85rem; color: var(--muted); margin-bottom: 2rem;
+    }
+    .hero-contact span {
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .7rem 1.6rem; border-radius: 8px;
+      font-size: .9rem; font-weight: 600; cursor: pointer;
+      transition: all .2s; border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(232,121,160,.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(232,121,160,.55); color: #fff; }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); transform: translateY(-2px); }
+
+    /* ── LinkedIn-style Profile Views Card ───── */
+    .pv-card {
+      display: inline-flex; align-items: center; gap: 1rem;
+      margin-top: 2rem; padding: .85rem 1.3rem;
+      background: rgba(240,171,252,.06);
+      border: 1px solid rgba(240,171,252,.22);
+      border-radius: 14px;
+      backdrop-filter: blur(8px);
+      animation: fadeInUp .6s ease both;
+    }
+    .pv-icon-wrap {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(232,121,160,.25), rgba(192,132,252,.3));
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .pv-info { display: flex; flex-direction: column; gap: .12rem; line-height: 1.3; }
+    .pv-count { font-size: .95rem; font-weight: 700; color: var(--text); }
+    .pv-count span { color: var(--accent2); }
+    .pv-label { font-size: .73rem; color: var(--muted); display: flex; align-items: center; gap: .35rem; }
+    .pv-live-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); animation: pulse 2s infinite; flex-shrink: 0;
+    }
+
+    /* Profile image */
+    .hero-img-wrap {
+      flex-shrink: 0;
+      position: relative; width: 260px; height: 260px;
+    }
+    .hero-img-wrap::before {
+      content: '';
+      position: absolute; inset: -3px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2), var(--teal));
+      border-radius: 50%; z-index: 0;
+      animation: rotateBorder 6s linear infinite;
+    }
+    @keyframes rotateBorder {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .hero-img-wrap::after {
+      content: '';
+      position: absolute; inset: 2px;
+      background: var(--bg);
+      border-radius: 50%; z-index: 1;
+    }
+    .hero-img-wrap img {
+      position: absolute; inset: 6px;
+      width: calc(100% - 12px); height: calc(100% - 12px);
+      border-radius: 50%; object-fit: cover; z-index: 2;
+    }
+
+    /* ── Sections ────────────────────────────────── */
+    section {
+      padding: 5rem 6%;
+      position: relative; z-index: 1;
+    }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-family: 'Fira Code', monospace; font-size: .75rem;
+      color: var(--accent); letter-spacing: .12em; margin-bottom: .5rem;
+      opacity: .85;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700;
+      margin-bottom: 3rem;
+    }
+    h2 em { font-style: italic; color: var(--accent); }
+
+    /* ── About ───────────────────────────────────── */
+    #about { background: var(--bg2); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      align-items: start;
+    }
+    .about-text p { color: var(--muted); font-size: 1rem; margin-bottom: 1rem; }
+    .about-strengths {
+      display: grid; grid-template-columns: 1fr 1fr; gap: .75rem;
+      margin-top: 1.25rem;
+    }
+    .strength-item {
+      display: flex; align-items: flex-start; gap: .75rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: .85rem 1rem;
+      transition: border-color .2s;
+    }
+    .strength-item:hover { border-color: var(--accent); }
+    .s-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: .1rem; }
+    .strength-item div { display: flex; flex-direction: column; gap: .15rem; }
+    .strength-item strong { font-size: .85rem; color: var(--text); }
+    .strength-item span { font-size: .75rem; color: var(--muted); line-height: 1.4; }
+    @media (max-width: 600px) { .about-strengths { grid-template-columns: 1fr; } }
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .stat-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      text-align: center;
+      transition: transform .2s, border-color .2s;
+    }
+    .stat-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 8px 30px rgba(232,121,160,.15); }
+    .stat-card .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat-card .label { font-size: .8rem; color: var(--muted); margin-top: .25rem; }
+
+    /* ── Experience ──────────────────────────────── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), var(--accent2), var(--teal), transparent);
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 3rem;
+      animation: fadeUp .6s ease both;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -2rem; top: .4rem;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 4px rgba(232,121,160,.2);
+    }
+    .job-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .job-card:hover { border-color: var(--accent); transform: translateX(4px); box-shadow: 0 4px 24px rgba(232,121,160,.1); }
+    .job-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem;
+    }
+    .job-title { font-size: 1.1rem; font-weight: 700; }
+    .job-company { color: var(--accent2); font-size: .95rem; font-weight: 600; }
+    .job-badge {
+      font-size: .75rem; font-family: 'Fira Code', monospace;
+      background: rgba(108,99,255,.15); color: var(--accent2);
+      border: 1px solid rgba(108,99,255,.3);
+      padding: .25rem .75rem; border-radius: 100px; white-space: nowrap;
+    }
+    .job-current {
+      background: rgba(16,185,129,.12); color: var(--green);
+      border-color: rgba(16,185,129,.3);
+    }
+    .job-meta { font-size: .82rem; color: var(--muted); margin-bottom: 1rem; }
+    .job-bullets { list-style: none; }
+    .job-bullets li {
+      position: relative; padding-left: 1.25rem;
+      font-size: .9rem; color: var(--muted); margin-bottom: .5rem;
+    }
+    .job-bullets li::before {
+      content: '▸';
+      position: absolute; left: 0; color: var(--accent);
+    }
+    .job-promo {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .78rem; background: rgba(249,115,22,.1);
+      color: var(--orange); border: 1px solid rgba(249,115,22,.25);
+      padding: .2rem .65rem; border-radius: 100px; margin-bottom: .85rem;
+    }
+
+    /* ── Skills ──────────────────────────────────── */
+    #skills { background: var(--bg2); }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-group {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      transition: border-color .2s;
+    }
+    .skill-group:hover { border-color: var(--accent); }
+    .skill-group-title {
+      font-size: .85rem; font-weight: 600; color: var(--accent2);
+      margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem;
+    }
+    .skill-group-title .icon {
+      width: 28px; height: 28px; border-radius: 6px;
+      background: rgba(108,99,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .skill-tag {
+      font-size: .78rem; font-family: 'Fira Code', monospace;
+      background: var(--surface2); color: var(--text);
+      border: 1px solid var(--border);
+      padding: .3rem .75rem; border-radius: 6px;
+      transition: all .2s;
+    }
+    .skill-tag:hover {
+      background: rgba(108,99,255,.2);
+      border-color: var(--accent); color: var(--accent2);
+    }
+
+    /* ── Education ───────────────────────────────── */
+    .edu-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .edu-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      transition: all .2s; position: relative; overflow: hidden;
+    }
+    .edu-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+    }
+    .edu-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .edu-degree { font-weight: 700; font-size: 1rem; margin-bottom: .3rem; }
+    .edu-school { color: var(--accent2); font-size: .9rem; margin-bottom: .5rem; }
+    .edu-meta { font-size: .82rem; color: var(--muted); }
+    .edu-score {
+      margin-top: .75rem; font-family: 'Fira Code', monospace;
+      font-size: .85rem;
+      background: rgba(16,185,129,.1); color: var(--green);
+      border: 1px solid rgba(16,185,129,.2);
+      display: inline-block; padding: .2rem .65rem; border-radius: 6px;
+    }
+
+    /* ── Contact ─────────────────────────────────── */
+    #contact { background: var(--bg2); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      align-items: center;
+    }
+    .contact-text p { color: var(--muted); margin-bottom: 1.5rem; }
+    .contact-links { display: flex; flex-direction: column; gap: .75rem; }
+    .contact-link {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1rem 1.25rem;
+      transition: all .2s;
+    }
+    .contact-link:hover {
+      border-color: var(--accent); transform: translateX(4px);
+      color: var(--text);
+    }
+    .contact-link .ci {
+      width: 38px; height: 38px; border-radius: 8px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .ci-mail  { background: rgba(108,99,255,.15); }
+    .ci-phone { background: rgba(16,185,129,.15); }
+    .ci-li    { background: rgba(34,211,238,.15); }
+    .ci-code  { background: rgba(249,115,22,.15); }
+    .ci-lc    { background: rgba(253,224,71,.1); }
+    .contact-link .cl-label { font-size: .75rem; color: var(--muted); }
+    .contact-link .cl-val {
+      font-size: .9rem; font-weight: 500; color: var(--text);
+    }
+    .resume-cta {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem; text-align: center;
+    }
+    .resume-cta p { color: var(--muted); font-size: .9rem; margin-bottom: 1.25rem; }
+
+    /* ── Footer ──────────────────────────────────── */
+    footer {
+      text-align: center; padding: 2rem 6%;
+      border-top: 1px solid var(--border);
+      color: var(--muted); font-size: .82rem;
+      position: relative; z-index: 1;
+    }
+
+    /* ── Animations ──────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { opacity: 0; animation: fadeUp .6s ease forwards; }
+    .fade-up:nth-child(1) { animation-delay: .1s; }
+    .fade-up:nth-child(2) { animation-delay: .2s; }
+    .fade-up:nth-child(3) { animation-delay: .3s; }
+    .fade-up:nth-child(4) { animation-delay: .4s; }
+
+    /* ── Typing animation ────────────────────────── */
+    .typed-wrap { display: inline-block; }
+    .typed-text {
+      background: linear-gradient(135deg, var(--accent2), var(--teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .typed-cursor {
+      display: inline-block;
+      width: 3px; height: 1em;
+      background: var(--teal);
+      margin-left: 4px;
+      vertical-align: text-bottom;
+      animation: blink .75s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* ── Projects ────────────────────────────────── */
+    #projects { background: var(--bg); }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      transition: all .25s; position: relative; overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .3s;
+    }
+    .project-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 12px 40px rgba(108,99,255,.2); }
+    .project-card:hover::before { transform: scaleX(1); }
+    .project-icon { font-size: 2rem; }
+    .project-title { font-size: 1.05rem; font-weight: 700; }
+    .project-desc { font-size: .88rem; color: var(--muted); flex: 1; line-height: 1.6; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .project-tag {
+      font-size: .72rem; font-family: 'Fira Code', monospace;
+      background: rgba(108,99,255,.12); color: var(--accent2);
+      border: 1px solid rgba(108,99,255,.25);
+      padding: .2rem .6rem; border-radius: 4px;
+    }
+    .project-links { display: flex; gap: .75rem; }
+    .project-link {
+      font-size: .8rem; font-weight: 600; color: var(--muted);
+      display: flex; align-items: center; gap: .3rem;
+      transition: color .2s;
+    }
+    .project-link:hover { color: var(--accent2); }
+
+    /* ── Skill proficiency bars ──────────────────── */
+    .skill-bars { display: flex; flex-direction: column; gap: .85rem; margin-top: .75rem; }
+    .bar-item {}
+    .bar-header { display: flex; justify-content: space-between; font-size: .8rem; margin-bottom: .3rem; }
+    .bar-header span:first-child { color: var(--text); font-weight: 500; }
+    .bar-header span:last-child { color: var(--muted); font-family: 'Fira Code', monospace; }
+    .bar-track {
+      height: 6px; background: var(--surface2);
+      border-radius: 100px; overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%; border-radius: 100px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--teal));
+      width: 0; transition: width 1.2s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ── DSA Section ────────────────────────────── */
+    #dsa { background: var(--bg2); }
+    .dsa-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .dsa-topics-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .dsa-topic {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+      transition: all .2s; cursor: default;
+    }
+    .dsa-topic:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .dsa-topic-head {
+      display: flex; align-items: center; gap: .6rem;
+      font-weight: 700; font-size: .9rem; margin-bottom: .6rem;
+    }
+    .dsa-topic-head .ti {
+      width: 30px; height: 30px; border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .95rem; background: rgba(108,99,255,.15);
+    }
+    .dsa-chips { display: flex; flex-wrap: wrap; gap: .35rem; }
+    .dsa-chip {
+      font-size: .72rem; font-family: 'Fira Code', monospace;
+      background: var(--surface2); color: var(--muted);
+      border: 1px solid var(--border); padding: .2rem .55rem; border-radius: 4px;
+    }
+    .dsa-stats {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .dsa-stat-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+      display: flex; align-items: center; gap: 1rem;
+      transition: border-color .2s;
+    }
+    .dsa-stat-card:hover { border-color: var(--accent); }
+    .dsa-stat-icon {
+      width: 46px; height: 46px; flex-shrink: 0; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+    }
+    .dsa-stat-card .num { font-size: 1.5rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .dsa-stat-card .lbl { font-size: .78rem; color: var(--muted); }
+
+    /* ── System Design Section ───────────────────── */
+    #systemdesign { background: var(--bg); }
+    .sd-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .sd-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      transition: all .2s; position: relative; overflow: hidden;
+    }
+    .sd-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      transform: scaleX(0); transform-origin: left; transition: transform .3s;
+    }
+    .sd-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .sd-card:hover::before { transform: scaleX(1); }
+    .sd-card-head {
+      display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem;
+    }
+    .sd-icon {
+      width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+      background: rgba(108,99,255,.15);
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .sd-title { font-weight: 700; font-size: .95rem; }
+    .sd-subtitle { font-size: .75rem; color: var(--accent2); }
+    .sd-points { list-style: none; }
+    .sd-points li {
+      font-size: .83rem; color: var(--muted);
+      padding: .35rem 0; padding-left: 1.1rem; position: relative;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+    .sd-points li:last-child { border-bottom: none; }
+    .sd-points li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+
+    /* ── Guidance Section ──────────────────────────── */
+    #guidance { background: var(--bg2); }
+    .guidance-layout {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: start;
+    }
+    .guidance-intro p {
+      color: var(--muted); font-size: .95rem; margin-bottom: 1rem; line-height: 1.75;
+    }
+    .guidance-topics {
+      display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; margin: 1.75rem 0;
+    }
+    .g-topic {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1rem;
+      display: flex; align-items: flex-start; gap: .65rem;
+      transition: all .2s;
+    }
+    .g-topic:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,121,160,.12); }
+    .g-topic-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: .1rem; }
+    .g-topic-title { font-size: .83rem; font-weight: 600; color: var(--text); margin-bottom: .2rem; }
+    .g-topic-desc { font-size: .74rem; color: var(--muted); line-height: 1.4; }
+    .guidance-cta-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      position: sticky; top: 100px;
+      text-align: center;
+    }
+    .guidance-cta-card .gcta-glow {
+      width: 70px; height: 70px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; margin: 0 auto 1.25rem;
+      box-shadow: 0 0 30px rgba(232,121,160,.35);
+    }
+    .guidance-cta-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; margin-bottom: .65rem;
+    }
+    .guidance-cta-card p {
+      font-size: .85rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.7;
+    }
+    .guidance-cta-card .mailto-box {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 10px; padding: .85rem 1rem;
+      font-family: 'Fira Code', monospace; font-size: .8rem;
+      color: var(--accent2); margin-bottom: 1.25rem;
+      word-break: break-all;
+    }
+    .guidance-note {
+      margin-top: 1.5rem; padding: 1rem 1.25rem;
+      background: rgba(232,121,160,.06); border: 1px solid rgba(232,121,160,.2);
+      border-radius: 10px; font-size: .8rem; color: var(--muted); line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .guidance-layout { grid-template-columns: 1fr; }
+      .guidance-cta-card { position: static; }
+    }
+    @media (max-width: 600px) {
+      .guidance-topics { grid-template-columns: 1fr; }
+    }
+
+    /* ── Back to top ─────────────────────────────── */
+    #back-top {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; border: none;
+      box-shadow: 0 4px 20px rgba(232,121,160,.45);
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .3s;
+    }
+    #back-top.visible { opacity: 1; pointer-events: all; }
+    #back-top:hover { transform: translateY(-3px); }
+
+    /* ── Responsive ──────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-inner { flex-direction: column-reverse; gap: 2.5rem; text-align: center; }
+      .hero-contact { justify-content: center; }
+      .hero-btns { justify-content: center; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .dsa-layout { grid-template-columns: 1fr; }
+      .hero-img-wrap { width: 200px; height: 200px; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 1rem 5%; }
+      .nav-links { gap: 1rem; }
+      section { padding: 3.5rem 5%; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ─────────────────────────────────────── -->
+  <nav>
+    <div class="nav-logo">Prerna Kumari</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#guidance">Guidance</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">Available for opportunities</div>
+        <h1>Hi, I'm<br /><span>Prerna Kumari</span></h1>
+        <p class="hero-sub">
+          <span class="typed-wrap"><span class="typed-text" id="typed"></span><span class="typed-cursor"></span></span>
+        </p>
+        <div class="hero-contact">
+          <span>📧 Kprerna031@outlook.com</span>
+          <span> Gurugram, India</span>
+          <span>💻 github.com/prernak1</span>
+        </div>
+        <div class="hero-btns">
+          <a class="btn btn-primary" href="Prerna_Resume_sde.pdf" download>
+            ⬇ Download Resume
+          </a>
+          <a class="btn btn-outline" href="#contact">Get in Touch</a>
+        </div>
+
+        <!-- LinkedIn-style views counter -->
+        <div class="pv-card" id="pv-card" style="display:none">
+          <div class="pv-icon-wrap">👁</div>
+          <div class="pv-info">
+            <span class="pv-count"><span id="pv-count">—</span> profile views</span>
+            <span class="pv-label"><span class="pv-live-dot"></span>Tracking live visits</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="hero-img-wrap">
+        <img src="Image (3).jpg" alt="Prerna Kumari" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ───────────────────────────────────── -->
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label">// about me</p>
+      <h2>Who I <em>Am</em></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Backend-focused Software Engineer with <strong>3+ years</strong> of experience building
+            scalable, distributed systems in production environments. Currently working as
+            <strong>Software Engineer II at S&amp;P Global</strong>, leading design of REST API
+            microservices and Kafka streaming pipelines that serve real-time financial data at scale.
+          </p>
+          <p>
+            I have hands-on experience in <strong>event-driven systems using Apache Kafka</strong> —
+            designing producer/consumer groups, partitioned topics, and offset management for
+            high-throughput financial data ingestion into <strong>Cassandra</strong> and SQL, including a
+            <strong>Kafka-to-GCP Pub/Sub bridge</strong> processing 250+ asset classes into BigQuery.
+            My cloud-native work spans <strong>AWS (EKS, Secrets Manager)</strong>, <strong>GCP (Pub/Sub, BigQuery)</strong>,
+            and container orchestration with <strong>Kubernetes and OpenShift</strong>.
+          </p>
+          <p>
+            On the .NET side, I build <strong>ASP.NET Core (.NET 6–10) REST APIs</strong> with
+            Swagger/OpenAPI, JSON and Protobuf support, and clean architecture principles. I've also been
+            partnering with product teams on <strong>Model Context Protocol (MCP)</strong> integrations —
+            connecting enterprise financial data to AI-powered experiences like ChatIQ in CIQPro — and
+            work extensively with <strong>GitHub Copilot</strong> and AI-assisted development workflows.
+          </p>
+          <p>
+            I enjoy solving complex backend problems involving <strong>performance, scalability,
+            and system reliability</strong>. Recent highlights include leading a REST API microservice
+            for real-time financial datasets, and modernizing legacy Fixed Income pipelines
+            (NTLM → OAuth, Kubernetes CronJobs) that cut failures by <strong>95%</strong>.
+          </p>
+          <div class="about-strengths">
+            <div class="strength-item"><span class="s-icon">⚙️</span><div><strong>Backend Engineering</strong><span>ASP.NET Core (.NET 6–10) — REST APIs, Swagger/OpenAPI, Protobuf, Clean Architecture</span></div></div>
+            <div class="strength-item"><span class="s-icon">🔀</span><div><strong>Distributed Systems</strong><span>Microservices, event-driven architecture, fault tolerance, idempotency</span></div></div>
+            <div class="strength-item"><span class="s-icon">📨</span><div><strong>Apache Kafka</strong><span>Producer/consumer groups, partitioned topics, offset management, Pub/Sub bridges</span></div></div>
+            <div class="strength-item"><span class="s-icon">☁️</span><div><strong>Cloud-Native</strong><span>AWS EKS, GCP Pub/Sub &amp; BigQuery, Kubernetes, OpenShift, Docker</span></div></div>
+            <div class="strength-item"><span class="s-icon">🤖</span><div><strong>AI-Assisted Engineering</strong><span>MCP, GitHub Copilot, LLMs, prompt engineering, RAG</span></div></div>
+            <div class="strength-item"><span class="s-icon">📊</span><div><strong>Observability</strong><span>Splunk, OpenSearch, Prometheus, Elasticsearch</span></div></div>
+          </div>
+          <p style="margin-top:1.25rem; padding: 1rem 1.25rem; background: rgba(108,99,255,.08); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; font-size:.9rem; color: var(--muted);">
+            🎯 Currently exploring opportunities at <strong style="color:var(--text)">product-based companies</strong> where I can work on
+            large-scale systems and contribute to impactful engineering problems.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card fade-up">
+            <div class="num">3+</div>
+            <div class="label">Years of Experience</div>
+          </div>
+          <div class="stat-card fade-up">
+            <div class="num">250+</div>
+            <div class="label">Asset Classes Processed</div>
+          </div>
+          <div class="stat-card fade-up">
+            <div class="num">95%</div>
+            <div class="label">Failure Reduction</div>
+          </div>
+          <div class="stat-card fade-up">
+            <div class="num">10+</div>
+            <div class="label">Repos Modernized</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Experience ──────────────────────────────── -->
+  <section id="experience">
+    <div class="section-inner">
+      <p class="section-label">// work experience</p>
+      <h2>Where I've <em>Worked</em></h2>
+      <div class="timeline">
+
+        <!-- S&P Global — SDE II -->
+        <div class="timeline-item">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-title">Software Engineer II</div>
+                <div class="job-company">S&amp;P Global &mdash; Gurugram, IN</div>
+              </div>
+              <span class="job-badge job-current">▸ Current</span>
+            </div>
+            <div class="job-promo">⬆ Promoted: SDE I → SDE II (Oct 2025)</div>
+            <div class="job-meta">Oct 2025 – Present</div>
+            <ul class="job-bullets">
+              <li>Led design and development of a <strong>REST API microservice using ASP.NET Core (.NET 10)</strong> to serve real-time financial datasets, supporting JSON and Protobuf; implemented Swagger/OpenAPI and async REST endpoints; acted as technical escalation point for API design decisions.</li>
+              <li>Designed high-throughput <strong>Kafka event streaming pipelines</strong> (producer/consumer groups, partitioned topics, offset management) for financial data ingestion into <strong>Apache Cassandra/SQL</strong>; and a <strong>Kafka-to-GCP Pub/Sub bridge</strong> processing 250+ asset classes at scale into BigQuery.</li>
+              <li>Containerized services using <strong>Docker</strong> and deployed to <strong>Amazon EKS</strong> via Azure DevOps CI/CD pipelines, with secrets managed via AWS Secrets Manager, removing the dependency on Windows Server.</li>
+              <li>Partner with product teams developing <strong>Model Context Protocol (MCP)</strong> capabilities that integrate enterprise financial data into AI-powered experiences including ChatIQ in CIQPro — refining tool schemas, parameter definitions, and AI interaction patterns for more reliable model behavior.</li>
+              <li>Work extensively with <strong>GitHub Copilot</strong> and AI-assisted development workflows, evaluating how AI capabilities improve engineering productivity while maintaining quality and security standards.</li>
+              <li>Lead system design reviews, resolve moderately complex technical challenges, and provide guidance to less experienced engineers.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- S&P Global — SDE I -->
+        <div class="timeline-item">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-title">Software Engineer I</div>
+                <div class="job-company">S&amp;P Global &mdash; Gurugram, IN</div>
+              </div>
+              <span class="job-badge">Dec 2023 – Sep 2025</span>
+            </div>
+            <div class="job-meta">Dec 2023 – Sep 2025 &nbsp;·&nbsp; 1 yr 10 mos</div>
+            <ul class="job-bullets">
+              <li>Developed containerized <strong>.NET C# microservices</strong> for Fixed Income data ingestion from AWS S3, deployed as <strong>Kubernetes CronJobs</strong> across 10+ repos.</li>
+              <li>Modernized legacy pipelines — migrated <strong>NTLM to OAuth</strong>, integrated AWS Secrets Manager, and upgraded to <strong>.NET 10</strong> — reducing failures by <strong>95%</strong>.</li>
+              <li>Collaborated with product managers, QA, and business users to define technical solutions and deliver features using <strong>Agile/Scrum</strong> methodologies.</li>
+              <li>Applied best practices: code reviews, unit testing, regression testing, and Level 2 production support.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Signant Health -->
+        <div class="timeline-item">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-title">Software Engineer I</div>
+                <div class="job-company">Signant Health (DSG Inc) &mdash; Noida, IN</div>
+              </div>
+              <span class="job-badge">Sep 2022 – Nov 2023</span>
+            </div>
+            <div class="job-meta">Sep 2022 – Nov 2023 &nbsp;·&nbsp; 1 yr 3 mos</div>
+            <ul class="job-bullets">
+              <li>Provided production support and optimized <strong>SQL queries</strong> to improve system performance.</li>
+              <li>Participated actively in an Agile environment, contributing to scalable engineering practices.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- DRDO -->
+        <div class="timeline-item">
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <div class="job-title">Trainee Engineer</div>
+                <div class="job-company">DRDO (Defence Research &amp; Development Organisation) &mdash; Delhi, IN</div>
+              </div>
+              <span class="job-badge">Jan – Jun 2022</span>
+            </div>
+            <div class="job-meta">Jan 2022 – Jun 2022 &nbsp;·&nbsp; 6 months</div>
+            <ul class="job-bullets">
+              <li>Improved the Junior Research Fellowship form using <strong>PHP</strong> and a CMS with a user-friendly interface.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Projects ─────────────────────────────────── -->
+  <section id="projects">
+    <div class="section-inner">
+      <p class="section-label">// featured projects</p>
+      <h2>What I've <em>Built</em></h2>
+      <div class="projects-grid">
+
+        <div class="project-card fade-up">
+          <div class="project-icon">📨</div>
+          <div class="project-title">Kafka-to-Pub/Sub Streaming Bridge</div>
+          <div class="project-desc">
+            High-throughput Kafka event streaming pipeline at S&amp;P Global — producer/consumer groups,
+            partitioned topics, and offset management for financial data ingestion into Apache Cassandra/SQL,
+            plus a Kafka-to-GCP Pub/Sub bridge processing 250+ asset classes into BigQuery.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Apache Kafka</span>
+            <span class="project-tag">GCP Pub/Sub</span>
+            <span class="project-tag">BigQuery</span>
+            <span class="project-tag">Cassandra</span>
+            <span class="project-tag">C# / .NET</span>
+          </div>
+          <div class="project-links">
+            <span class="project-link">🏢 S&amp;P Global — Enterprise</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-icon">🤖</div>
+          <div class="project-title">MCP + AI Integration for ChatIQ</div>
+          <div class="project-desc">
+            Partnered with product teams building Model Context Protocol (MCP) capabilities that integrate
+            enterprise financial data into AI-powered experiences including ChatIQ in CIQPro — refining tool
+            schemas, parameter definitions, and AI interaction patterns for reliable model behavior.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">MCP</span>
+            <span class="project-tag">GitHub Copilot</span>
+            <span class="project-tag">LLMs</span>
+            <span class="project-tag">Prompt Engineering</span>
+            <span class="project-tag">ASP.NET Core</span>
+          </div>
+          <div class="project-links">
+            <span class="project-link">🏢 S&amp;P Global — Enterprise</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-icon">☸️</div>
+          <div class="project-title">Fixed Income Data Ingestion on Kubernetes</div>
+          <div class="project-desc">
+            Containerized .NET microservices for Fixed Income data ingestion from AWS S3, deployed as
+            Kubernetes CronJobs across 10+ repos. Modernized NTLM to OAuth, integrated Secrets Manager,
+            and upgraded to .NET 10 — reducing failures by 95%.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Kubernetes</span>
+            <span class="project-tag">.NET 10</span>
+            <span class="project-tag">AWS S3</span>
+            <span class="project-tag">OAuth</span>
+            <span class="project-tag">Docker</span>
+          </div>
+          <div class="project-links">
+            <span class="project-link">🏢 S&amp;P Global — Enterprise</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-icon">📄</div>
+          <div class="project-title">AI Resume Matcher</div>
+          <div class="project-desc">
+            ASP.NET Core 9 Web API backend with NLP tokenization-based resume parsing to extract skill tokens;
+            integrates the Greenhouse Harvest API via HttpClient + Task.WhenAll for concurrent live job
+            aggregation across companies (Stripe, Airbnb, Shopify). Ranks openings using a TF-IDF-style
+            term weighting and cosine similarity scoring algorithm.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">ASP.NET Core 9</span>
+            <span class="project-tag">Clean Architecture</span>
+            <span class="project-tag">Greenhouse API</span>
+            <span class="project-tag">TF-IDF</span>
+            <span class="project-tag">Vanilla JS</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/prernak1/AI-Resume-Matcher" target="_blank" rel="noopener">💻 View on GitHub</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ──────────────────────────────────── -->
+  <section id="skills">
+    <div class="section-inner">
+      <p class="section-label">// technical skills</p>
+      <h2>What I <em>Build With</em></h2>
+      <div class="skills-grid">
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-title">
+            <div class="icon">💻</div> Languages & Frameworks
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">.NET Core / Framework (6–10)</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">REST API</span>
+            <span class="skill-tag">Swagger/OpenAPI</span>
+            <span class="skill-tag">Microservices</span>
+            <span class="skill-tag">Distributed Streaming</span>
+            <span class="skill-tag">Clean Architecture</span>
+            <span class="skill-tag">OOP</span>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-title">
+            <div class="icon">☁️</div> Cloud & DevOps
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS (EKS, Secrets Manager)</span>
+            <span class="skill-tag">GCP (Pub/Sub, BigQuery)</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">OpenShift</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Azure DevOps</span>
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">CI/CD Pipelines</span>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-title">
+            <div class="icon">📊</div> Data & Messaging
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Apache Kafka</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">SQL Server (MSSQL)</span>
+            <span class="skill-tag">Apache Cassandra</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">Elasticsearch</span>
+            <span class="skill-tag">Splunk</span>
+            <span class="skill-tag">OpenSearch</span>
+            <span class="skill-tag">Prometheus</span>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-title">
+            <div class="icon">🤖</div> AI / ML & Practices
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Model Context Protocol (MCP)</span>
+            <span class="skill-tag">LLMs</span>
+            <span class="skill-tag">Prompt Engineering</span>
+            <span class="skill-tag">RAG</span>
+            <span class="skill-tag">GitHub Copilot</span>
+            <span class="skill-tag">Data Structures & Algorithms</span>
+            <span class="skill-tag">System Design</span>
+            <span class="skill-tag">Agile / Scrum</span>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up" style="grid-column: 1 / -1;">
+          <div class="skill-group-title">
+            <div class="icon">📈</div> Proficiency Levels
+          </div>
+          <div class="skill-bars" id="skill-bars">
+            <div class="bar-item"><div class="bar-header"><span>C# / .NET</span><span>Expert</span></div><div class="bar-track"><div class="bar-fill" data-w="92"></div></div></div>
+            <div class="bar-item"><div class="bar-header"><span>Apache Kafka / Microservices</span><span>Advanced</span></div><div class="bar-track"><div class="bar-fill" data-w="87"></div></div></div>
+            <div class="bar-item"><div class="bar-header"><span>Cloud-Native (AWS / GCP / K8s)</span><span>Advanced</span></div><div class="bar-track"><div class="bar-fill" data-w="83"></div></div></div>
+            <div class="bar-item"><div class="bar-header"><span>SQL / Databases</span><span>Expert</span></div><div class="bar-track"><div class="bar-fill" data-w="90"></div></div></div>
+            <div class="bar-item"><div class="bar-header"><span>CI/CD & DevOps</span><span>Advanced</span></div><div class="bar-track"><div class="bar-fill" data-w="80"></div></div></div>
+            <div class="bar-item"><div class="bar-header"><span>AI-Assisted Engineering (MCP / Copilot)</span><span>Advanced</span></div><div class="bar-track"><div class="bar-fill" data-w="78"></div></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DSA ──────────────────────────────────────── -->
+  <section id="dsa">
+    <div class="section-inner">
+      <p class="section-label">// data structures & algorithms</p>
+      <h2>Problem <em>Solving</em></h2>
+      <div class="dsa-layout">
+        <div class="dsa-topics-grid">
+
+          <div class="dsa-topic fade-up">
+            <div class="dsa-topic-head"><div class="ti">🌲</div> Trees & Graphs</div>
+            <div class="dsa-chips">
+              <span class="dsa-chip">Binary Tree</span>
+              <span class="dsa-chip">BST</span>
+              <span class="dsa-chip">AVL Tree</span>
+              <span class="dsa-chip">BFS</span>
+              <span class="dsa-chip">DFS</span>
+              <span class="dsa-chip">Dijkstra</span>
+              <span class="dsa-chip">Topological Sort</span>
+              <span class="dsa-chip">Union-Find</span>
+            </div>
+          </div>
+
+          <div class="dsa-topic fade-up">
+            <div class="dsa-topic-head"><div class="ti">🧩</div> Dynamic Programming</div>
+            <div class="dsa-chips">
+              <span class="dsa-chip">Memoization</span>
+              <span class="dsa-chip">Tabulation</span>
+              <span class="dsa-chip">Knapsack</span>
+              <span class="dsa-chip">LCS / LIS</span>
+              <span class="dsa-chip">Matrix DP</span>
+              <span class="dsa-chip">Interval DP</span>
+              <span class="dsa-chip">Bitmask DP</span>
+            </div>
+          </div>
+
+          <div class="dsa-topic fade-up">
+            <div class="dsa-topic-head"><div class="ti">🔢</div> Arrays & Strings</div>
+            <div class="dsa-chips">
+              <span class="dsa-chip">Two Pointers</span>
+              <span class="dsa-chip">Sliding Window</span>
+              <span class="dsa-chip">Prefix Sum</span>
+              <span class="dsa-chip">Kadane's Algo</span>
+              <span class="dsa-chip">Binary Search</span>
+              <span class="dsa-chip">Hash Maps</span>
+            </div>
+          </div>
+
+          <div class="dsa-topic fade-up">
+            <div class="dsa-topic-head"><div class="ti">📚</div> Core Structures</div>
+            <div class="dsa-chips">
+              <span class="dsa-chip">Stack / Queue</span>
+              <span class="dsa-chip">Heap / PQ</span>
+              <span class="dsa-chip">Trie</span>
+              <span class="dsa-chip">Segment Tree</span>
+              <span class="dsa-chip">Linked List</span>
+              <span class="dsa-chip">Deque</span>
+            </div>
+          </div>
+
+          <div class="dsa-topic fade-up">
+            <div class="dsa-topic-head"><div class="ti">⚡</div> Algorithms</div>
+            <div class="dsa-chips">
+              <span class="dsa-chip">Quick Sort</span>
+              <span class="dsa-chip">Merge Sort</span>
+              <span class="dsa-chip">Greedy</span>
+              <span class="dsa-chip">Backtracking</span>
+              <span class="dsa-chip">Divide & Conquer</span>
+              <span class="dsa-chip">Bit Manipulation</span>
+            </div>
+          </div>
+
+          <div class="dsa-topic fade-up">
+            <div class="dsa-topic-head"><div class="ti">🎯</div> Patterns</div>
+            <div class="dsa-chips">
+              <span class="dsa-chip">Fast & Slow Ptr</span>
+              <span class="dsa-chip">Merge Intervals</span>
+              <span class="dsa-chip">Cyclic Sort</span>
+              <span class="dsa-chip">Monotonic Stack</span>
+              <span class="dsa-chip">Top K Elements</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="dsa-stats">
+          <div class="dsa-stat-card fade-up">
+            <div class="dsa-stat-icon" style="background:rgba(253,224,71,.1)">⚡</div>
+            <div>
+              <div class="num">LeetCode</div>
+              <div class="lbl">Active problem solver — Easy, Medium &amp; Hard</div>
+            </div>
+          </div>
+          <div class="dsa-stat-card fade-up">
+            <div class="dsa-stat-icon" style="background:rgba(249,115,22,.1)">🔥</div>
+            <div>
+              <div class="num">Code360</div>
+              <div class="lbl">Coding Ninjas — DSA practice &amp; contests</div>
+            </div>
+          </div>
+          <div class="dsa-stat-card fade-up">
+            <div class="dsa-stat-icon" style="background:rgba(108,99,255,.15)">🏆</div>
+            <div>
+              <div class="num">Applied DSA</div>
+              <div class="lbl">Used in production: optimized SQL queries, batch processing algorithms, Kafka partition strategies</div>
+            </div>
+          </div>
+          <div class="dsa-stat-card fade-up">
+            <div class="dsa-stat-icon" style="background:rgba(16,185,129,.1)">🎓</div>
+            <div>
+              <div class="num">B.Tech CS</div>
+              <div class="lbl">Strong academic foundation in algorithms, complexity (Big-O), and data structures</div>
+            </div>
+          </div>
+          <div style="background:rgba(108,99,255,.06); border:1px solid rgba(108,99,255,.2); border-radius:var(--radius); padding:1.25rem; font-size:.85rem; color:var(--muted); line-height:1.7;">
+            <strong style="color:var(--text); display:block; margin-bottom:.5rem;">🧠 Real-world DSA usage</strong>
+            Selected optimal data structures for the CDS microservice — using priority queues for event ordering, hash maps for deduplication, and sliding window algorithms for time-series batch processing at S&amp;P Global.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── System Design ───────────────────────────── -->
+  <section id="systemdesign">
+    <div class="section-inner">
+      <p class="section-label">// system design</p>
+      <h2>Architecture <em>Knowledge</em></h2>
+      <div class="sd-grid">
+
+        <div class="sd-card fade-up">
+          <div class="sd-card-head">
+            <div class="sd-icon">🏗️</div>
+            <div><div class="sd-title">Distributed Systems</div><div class="sd-subtitle">CAP theorem, consistency, fault tolerance</div></div>
+          </div>
+          <ul class="sd-points">
+            <li>CAP Theorem — trade-offs between Consistency, Availability &amp; Partition tolerance</li>
+            <li>Leader election, consensus algorithms (Raft/Paxos concepts)</li>
+            <li>Eventual consistency vs strong consistency models</li>
+            <li>Idempotency &amp; exactly-once delivery guarantees</li>
+            <li>Distributed transactions &amp; saga pattern</li>
+          </ul>
+        </div>
+
+        <div class="sd-card fade-up">
+          <div class="sd-card-head">
+            <div class="sd-icon">📨</div>
+            <div><div class="sd-title">Event-Driven Architecture</div><div class="sd-subtitle">Apache Kafka — hands-on production experience</div></div>
+          </div>
+          <ul class="sd-points">
+            <li>Topic design, partition strategy &amp; replication factor</li>
+            <li>Consumer groups, offset management &amp; lag monitoring</li>
+            <li>Exactly-once semantics (EOS) &amp; idempotent producers</li>
+            <li>Dead letter queues (DLQ) for error handling</li>
+            <li>Kafka Connect for data pipeline integration</li>
+            <li>Used in CDS microservice at S&amp;P Global (production)</li>
+          </ul>
+        </div>
+
+        <div class="sd-card fade-up">
+          <div class="sd-card-head">
+            <div class="sd-icon">🔀</div>
+            <div><div class="sd-title">Microservices Design</div><div class="sd-subtitle">Patterns &amp; real production architecture</div></div>
+          </div>
+          <ul class="sd-points">
+            <li>Service decomposition &amp; domain-driven design (DDD)</li>
+            <li>API Gateway, service discovery &amp; load balancing</li>
+            <li>Circuit breaker, retry &amp; bulkhead patterns</li>
+            <li>Inter-service communication: REST, gRPC, async messaging</li>
+            <li>Containerization with Docker &amp; orchestration</li>
+            <li>Sidecar &amp; ambassador patterns</li>
+          </ul>
+        </div>
+
+        <div class="sd-card fade-up">
+          <div class="sd-card-head">
+            <div class="sd-icon">🗄️</div>
+            <div><div class="sd-title">Database Design</div><div class="sd-subtitle">SQL, NoSQL, caching &amp; sharding</div></div>
+          </div>
+          <ul class="sd-points">
+            <li>Relational DB design — normalization, indexing, query optimization</li>
+            <li>NoSQL trade-offs: Cassandra (wide-column), document stores</li>
+            <li>Read replicas, write-ahead logging &amp; connection pooling</li>
+            <li>Caching strategies: cache-aside, write-through, TTL</li>
+            <li>Database sharding &amp; partitioning strategies</li>
+          </ul>
+        </div>
+
+        <div class="sd-card fade-up">
+          <div class="sd-card-head">
+            <div class="sd-icon">📈</div>
+            <div><div class="sd-title">Scalability & Performance</div><div class="sd-subtitle">Designing for high throughput</div></div>
+          </div>
+          <ul class="sd-points">
+            <li>Horizontal vs vertical scaling strategies</li>
+            <li>Rate limiting, throttling &amp; backpressure</li>
+            <li>Async processing &amp; job queues for heavy workloads</li>
+            <li>CDN, load balancers &amp; reverse proxies</li>
+            <li>Performance profiling &amp; bottleneck identification</li>
+            <li>Batch vs stream processing trade-offs (applied at S&amp;P Global)</li>
+          </ul>
+        </div>
+
+        <div class="sd-card fade-up">
+          <div class="sd-card-head">
+            <div class="sd-icon">🔍</div>
+            <div><div class="sd-title">Observability & Reliability</div><div class="sd-subtitle">Production-grade monitoring</div></div>
+          </div>
+          <ul class="sd-points">
+            <li>Metrics, logs &amp; traces — the three pillars of observability</li>
+            <li>Prometheus for metrics collection &amp; alerting rules</li>
+            <li>OpenSearch / ELK Stack for centralized log aggregation</li>
+            <li>Azure Application Insights for APM &amp; distributed tracing</li>
+            <li>SLO / SLI / SLA definitions &amp; error budget tracking</li>
+            <li>Incident response &amp; postmortem culture</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Education ───────────────────────────────── -->
+  <section id="education">
+    <div class="section-inner">
+      <p class="section-label">// education</p>
+      <h2>Academic <em>Background</em></h2>
+      <div class="edu-grid">
+
+        <div class="edu-card fade-up">
+          <div class="edu-degree">B.Tech — Computer Science &amp; Engineering</div>
+          <div class="edu-school">Dr. A.P.J. Abdul Kalam Technical University</div>
+          <div class="edu-meta">Graduated 2023</div>
+          <div class="edu-score">82%</div>
+        </div>
+
+        <div class="edu-card fade-up">
+          <div class="edu-degree">Senior Secondary (Class XII)</div>
+          <div class="edu-school">Central Board of Secondary Education (CBSE)</div>
+          <div class="edu-meta">Passed 2019</div>
+          <div class="edu-score">78%</div>
+        </div>
+
+        <div class="edu-card fade-up">
+          <div class="edu-degree">Secondary (Class X)</div>
+          <div class="edu-school">Central Board of Secondary Education (CBSE)</div>
+          <div class="edu-meta">Passed 2017</div>
+          <div class="edu-score">CGPA 9.1</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Guidance ───────────────────────────────── -->
+  <section id="guidance">
+    <div class="section-inner">
+      <p class="section-label">// personal guidance</p>
+      <h2>Let Me <em>Help You</em></h2>
+      <div class="guidance-layout">
+
+        <div class="guidance-intro">
+          <p>
+            I know how overwhelming it can feel to navigate tech careers, crack DSA interviews,
+            or understand complex backend concepts on your own. I've been there — and honestly,
+            <strong style="color:var(--text)">I'm still on that journey myself.</strong>
+          </p>
+          <p>
+            I'm currently in a learning and growth phase too — actively practising DSA, deepening
+            my system design knowledge, and working towards a career switch to a product-based company.
+            So if you're on a similar path, we're more alike than you think! 💜
+          </p>
+          <p>
+            I offer two ways to connect depending on what you need:
+          </p>
+          <div style="display:flex; flex-direction:column; gap:.75rem; margin: 1rem 0 1.5rem;">
+            <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1rem 1.25rem; display:flex; gap:.85rem; align-items:flex-start;">
+              <div style="font-size:1.3rem; flex-shrink:0">📧</div>
+              <div>
+                <div style="font-weight:600; font-size:.88rem; color:var(--text); margin-bottom:.25rem;">Free — Quick Questions via Email</div>
+                <div style="font-size:.78rem; color:var(--muted); line-height:1.5;">Short queries, resource suggestions, or a quick nudge in the right direction. Best for simple, specific questions. <strong style="color:var(--accent2)">No 1:1 calls, no resume reviews.</strong></div>
+              </div>
+            </div>
+            <div style="background:linear-gradient(135deg, rgba(124,58,237,.1), rgba(232,121,160,.1)); border:1px solid rgba(232,121,160,.3); border-radius:12px; padding:1rem 1.25rem; display:flex; gap:.85rem; align-items:flex-start;">
+              <div style="font-size:1.3rem; flex-shrink:0">🚀</div>
+              <div>
+                <div style="font-weight:600; font-size:.88rem; color:var(--text); margin-bottom:.25rem;">Paid — In-Depth 1:1 on Topmate</div>
+                <div style="font-size:.78rem; color:var(--muted); line-height:1.5;">Resume review, mock interview prep, career roadmap, DSA strategy session, system design walkthrough. Dedicated time, focused advice. <strong style="color:var(--orange)">Book a slot on Topmate.</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="guidance-topics">
+            <div class="g-topic">
+              <div class="g-topic-icon">💼</div>
+              <div>
+                <div class="g-topic-title">Career Advice</div>
+                <div class="g-topic-desc">How to get into product companies, resume tips, profile building</div>
+              </div>
+            </div>
+            <div class="g-topic">
+              <div class="g-topic-icon">🧩</div>
+              <div>
+                <div class="g-topic-title">DSA & Problem Solving</div>
+                <div class="g-topic-desc">Where to start, how to practice, which patterns matter most</div>
+              </div>
+            </div>
+            <div class="g-topic">
+              <div class="g-topic-icon">🏗️</div>
+              <div>
+                <div class="g-topic-title">System Design</div>
+                <div class="g-topic-desc">Resources, how to prepare, common mistakes in interviews</div>
+              </div>
+            </div>
+            <div class="g-topic">
+              <div class="g-topic-icon">☁️</div>
+              <div>
+                <div class="g-topic-title">Backend & Cloud</div>
+                <div class="g-topic-desc">.NET, microservices, Kafka, GCP/AWS — concepts and learning paths</div>
+              </div>
+            </div>
+            <div class="g-topic">
+              <div class="g-topic-icon">📝</div>
+              <div>
+                <div class="g-topic-title">Resume Review</div>
+                <div class="g-topic-desc">Honest feedback on your resume to make it recruiter-ready</div>
+              </div>
+            </div>
+            <div class="g-topic">
+              <div class="g-topic-icon">💬</div>
+              <div>
+                <div class="g-topic-title">Interview Prep</div>
+                <div class="g-topic-desc">What to expect in tech rounds, HR, and how to present yourself</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="guidance-note">
+            ✨ <strong style="color:var(--text)">Free email = quick questions only.</strong> For anything deeper — resume reviews, mock interviews, career planning, or a proper 1:1 chat — book a paid session on Topmate. Your time and mine are both valuable! 💜
+          </div>
+        </div>
+
+        <div class="guidance-cta-card fade-up">
+          <div class="gcta-glow">�</div>
+          <h3>Book a 1:1 Session</h3>
+          <p>
+            Get dedicated, focused guidance tailored to your specific situation. Pick a slot that works for you.
+          </p>
+          <a href="https://topmate.io/prerna_kumari22" target="_blank" rel="noopener"
+             style="display:flex; align-items:center; justify-content:center; gap:.45rem; background:linear-gradient(135deg,#7c3aed,#e879a0); color:#fff; font-size:.9rem; font-weight:700; padding:.75rem 1.2rem; border-radius:10px; transition:all .2s; box-shadow:0 4px 20px rgba(124,58,237,.4); margin-bottom:1rem; text-decoration:none;"
+             onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(124,58,237,.55)'"
+             onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(124,58,237,.4)'">
+            🚀 Book on Topmate
+          </a>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:.6rem; margin-bottom:1.25rem;">
+            <div style="background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:.65rem; text-align:center; font-size:.72rem; color:var(--muted);">&#x1F9E0; DSA Strategy</div>
+            <div style="background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:.65rem; text-align:center; font-size:.72rem; color:var(--muted);">&#x1F4DD; Resume Review</div>
+            <div style="background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:.65rem; text-align:center; font-size:.72rem; color:var(--muted);">&#x1F3D7;&#xFE0F; System Design</div>
+            <div style="background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:.65rem; text-align:center; font-size:.72rem; color:var(--muted);">&#x1F4BC; Career Switch</div>
+          </div>
+          <div style="border-top:1px solid var(--border); padding-top:1rem; margin-top:.25rem;">
+            <div style="font-size:.72rem; color:var(--muted); margin-bottom:.5rem;">For quick, simple questions only:</div>
+            <a class="btn btn-outline" href="mailto:Kprerna031@outlook.com?subject=Quick%20Question%20%E2%80%94%20[Topic]&body=Hi%20Prerna%2C%0A%0AMy%20quick%20question%3A%0A" style="width:100%; justify-content:center; font-size:.82rem; padding:.55rem 1rem;">
+              ✉️ Send a Quick Email
+            </a>
+          </div>
+          <div style="margin-top:1rem; font-size:.75rem; color:var(--muted); text-align:center;">
+            Or connect on <a href="https://www.linkedin.com/in/prerna-kumari-33441a1a8/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ─────────────────────────────────── -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label">// contact</p>
+      <h2>Let's <em>Connect</em></h2>
+      <div class="contact-grid">
+        <div class="contact-text">
+          <p>
+            I'm open to exciting Software Engineering roles — full-time or contract,
+            on-site or remote. Whether you have a role in mind or just want to chat
+            about tech, feel free to reach out!
+          </p>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:Kprerna031@outlook.com">
+              <div class="ci ci-mail">📧</div>
+              <div>
+                <div class="cl-label">Email</div>
+                <div class="cl-val">Kprerna031@outlook.com</div>
+              </div>
+            </a>
+
+            <a class="contact-link" href="https://www.linkedin.com/in/prerna-kumari-33441a1a8/" target="_blank" rel="noopener">
+              <div class="ci ci-li">🔗</div>
+              <div>
+                <div class="cl-label">LinkedIn</div>
+                <div class="cl-val">linkedin.com/in/prerna-kumari</div>
+              </div>
+            </a>
+            <a class="contact-link" href="https://github.com/prernak1" target="_blank" rel="noopener">
+              <div class="ci ci-li" style="background: rgba(232,121,160,.15);">💻</div>
+              <div>
+                <div class="cl-label">GitHub</div>
+                <div class="cl-val">github.com/prernak1</div>
+              </div>
+            </a>
+            <a class="contact-link" href="https://www.naukri.com/code360/profile/b7bc8693-f924-46b6-b462-f5c448e41561" target="_blank" rel="noopener">
+              <div class="ci ci-code">💡</div>
+              <div>
+                <div class="cl-label">Code360 (Coding Ninjas)</div>
+                <div class="cl-val">naukri.com/code360/profile</div>
+              </div>
+            </a>
+            <a class="contact-link" href="https://leetcode.com/u/kprerna031/" target="_blank" rel="noopener">
+              <div class="ci ci-lc">⚡</div>
+              <div>
+                <div class="cl-label">LeetCode</div>
+                <div class="cl-val">leetcode.com/u/kprerna031</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="resume-cta">
+          <div style="font-size:3rem;margin-bottom:1rem;">📄</div>
+          <h3 style="font-size:1.2rem;margin-bottom:.5rem;">View My Resume</h3>
+          <p>Download a copy of my full resume to share with your team.</p>
+          <a class="btn btn-primary" href="Prerna_Resume_sde.pdf" download>
+            ⬇ Download Resume PDF
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Back to top ──────────────────────────────── -->
+  <button id="back-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <!-- ── Footer ──────────────────────────────────── -->
+  <footer>
+    <p>Designed &amp; built by Prerna Kumari &nbsp;·&nbsp; © 2026 &nbsp;·&nbsp; All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ── Typing animation ──────────────────────────
+    const phrases = [
+      'SDE II at S\u0026P Global',
+      'Backend Engineer',
+      'Cloud \u0026 Microservices',
+      'Distributed Systems',
+      '.NET \u0026 Python Developer',
+      'Apache Kafka Engineer',
+      'AI-Assisted Engineering \u0026 MCP'
+    ];
+    let pi = 0, ci = 0, deleting = false;
+    const el = document.getElementById('typed');
+    function type() {
+      const word = phrases[pi];
+      if (!deleting) {
+        el.textContent = word.slice(0, ++ci);
+        if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; }
+      } else {
+        el.textContent = word.slice(0, --ci);
+        if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+      }
+      setTimeout(type, deleting ? 55 : 90);
+    }
+    type();
+
+    // ── Scroll animations ─────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+          // Trigger skill bars when visible
+          if (e.target.id === 'skill-bars' || e.target.contains(document.querySelector('.bar-fill'))) {
+            document.querySelectorAll('.bar-fill').forEach(b => {
+              b.style.width = b.dataset.w + '%';
+            });
+          }
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-up, .timeline-item, .skill-group, .edu-card, .project-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
+      observer.observe(el);
+    });
+
+    // Skill bars observer
+    const barsEl = document.getElementById('skill-bars');
+    if (barsEl) {
+      const barObs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          document.querySelectorAll('.bar-fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
+          barObs.disconnect();
+        }
+      }, { threshold: 0.3 });
+      barObs.observe(barsEl);
+    }
+
+    // ── Active nav + back-to-top ──────────────────
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const backTop  = document.getElementById('back-top');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text)' : '';
+      });
+      backTop.classList.toggle('visible', window.scrollY > 400);
+    });
+  </script>
+
+  <!--
+  ═══════════════════════════════════════════════════════════════════════════
+   VISITOR TRACKING — LinkedIn-style Profile Views
+  ═══════════════════════════════════════════════════════════════════════════
+
+  PART A — Firebase Realtime Database (stores view count + visitor log)
+  ──────────────────────────────────────────────────────────────────────────
+  1. Go to https://console.firebase.google.com → Create project (free)
+  2. Build → Realtime Database → Create Database → Start in TEST mode
+  3. Copy the Database URL  (e.g. https://my-project-rtdb.firebaseio.com)
+     Paste it as FIREBASE_DB_URL below
+  4. (Optional, for security after testing) Rules tab → change to:
+       { "rules": { ".read": false, ".write": true } }
+
+  PART B — EmailJS (sends you an email on each visit)
+  ──────────────────────────────────────────────────────────────────────────
+  1. Go to https://www.emailjs.com → Sign up FREE (200 emails/month)
+  2. Email Services → Add New Service → connect your Gmail/Outlook
+     → Copy the Service ID
+  3. Email Templates → Create New Template
+     Subject : 🔔 New Portfolio Visitor!
+     Body    :
+       Hi Prerna! Someone viewed your portfolio 👀
+
+       🕐 Time       : {{visitor_time}}
+       📍 Location   : {{visitor_location}}
+       🏢 Network    : {{visitor_company}}
+       📱 Device     : {{visitor_device}}
+       🔗 Came from  : {{visitor_referrer}}
+       👁 Total views: {{visitor_total}}
+
+     → Copy the Template ID
+  4. Account → API Keys → Copy Public Key
+  ═══════════════════════════════════════════════════════════════════════════
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (async function () {
+
+      // ── Your credentials ────────────────────────────────────────────────
+      const FIREBASE_DB_URL     = 'YOUR_FIREBASE_URL';   // ← e.g. https://xyz-rtdb.firebaseio.com
+      const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';     // ← from EmailJS
+      const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';     // ← from EmailJS
+      const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';    // ← from EmailJS
+
+      const hasFirebase = FIREBASE_DB_URL  !== 'YOUR_FIREBASE_URL';
+      const hasEmail    = EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY';
+
+      // ── Gather visitor info ──────────────────────────────────────────────
+      const time     = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+      const device   = /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile 📱' : 'Desktop 💻';
+      const referrer = document.referrer
+        ? (() => { try { return new URL(document.referrer).hostname; } catch(_){ return document.referrer; } })()
+        : 'Direct / bookmark';
+
+      let geo = {};
+      try { geo = await fetch('https://ipapi.co/json/').then(r => r.json()); } catch (_) {}
+      const location = geo.city
+        ? `${geo.city}, ${geo.region}, ${geo.country_name}`
+        : 'Unknown location';
+      const company = geo.org || 'Unknown network';
+
+      // ── Firebase: increment counter + show on page ───────────────────────
+      let totalViews = null;
+      if (hasFirebase) {
+        try {
+          // Read current count
+          const res  = await fetch(`${FIREBASE_DB_URL}/stats/totalViews.json`);
+          const prev = (await res.json()) || 0;
+          totalViews = prev + 1;
+
+          // Write new count
+          await fetch(`${FIREBASE_DB_URL}/stats/totalViews.json`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(totalViews),
+          });
+
+          // Show profile views card on the page
+          const card    = document.getElementById('pv-card');
+          const countEl = document.getElementById('pv-count');
+          if (card && countEl) {
+            countEl.textContent = totalViews.toLocaleString();
+            card.style.display  = 'inline-flex';
+          }
+
+          // Log individual visit once per browser session
+          if (!sessionStorage.getItem('pv_logged')) {
+            sessionStorage.setItem('pv_logged', '1');
+            await fetch(`${FIREBASE_DB_URL}/visitors.json`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ time, location, company, device, referrer }),
+            });
+          }
+        } catch (_) { /* Firebase unreachable */ }
+      }
+
+      // ── EmailJS: notify once per browser session ─────────────────────────
+      if (hasEmail && !sessionStorage.getItem('pv_notified')) {
+        sessionStorage.setItem('pv_notified', '1');
+        try {
+          emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+          await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+            visitor_time:     time,
+            visitor_location: location,
+            visitor_company:  company,
+            visitor_device:   device,
+            visitor_referrer: referrer,
+            visitor_total:    totalViews ? totalViews.toLocaleString() : 'N/A',
+          });
+        } catch (_) { /* EmailJS unreachable */ }
+      }
+
+    })();
+  </script>
+</body>
+</html>
